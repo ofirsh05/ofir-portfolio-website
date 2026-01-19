@@ -576,12 +576,172 @@
       transform: scale(1.03);
     }
   </style>
-  <style>@view-transition { navigation: auto; }</style>
+
+  <style>
+    /* ADMIN (hidden) */
+    .admin-btn {
+      position: fixed;
+      left: 14px;
+      bottom: 14px;
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      background: rgba(42, 36, 32, 0.12);
+      border: 1px solid rgba(184, 155, 114, 0.22);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+      z-index: 10000;
+      opacity: 0.35;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .admin-btn:hover { opacity: 0.8; transform: scale(1.08); }
+
+    .admin-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(42, 36, 32, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+      padding: 20px;
+    }
+    .admin-overlay.open { display: flex; }
+
+    .admin-panel {
+      width: min(720px, 92vw);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 40px 90px -30px rgba(0,0,0,0.65);
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(246, 244, 241, 0.92);
+      color: #2A2420;
+    }
+
+    .admin-panel-header {
+      padding: 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(184,155,114,0.18), rgba(184,155,114,0.08));
+      border-bottom: 1px solid rgba(184, 155, 114, 0.18);
+    }
+
+    .admin-panel-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      font-size: 0.9rem;
+    }
+
+    .admin-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 1px solid rgba(184, 155, 114, 0.28);
+      background: rgba(42, 36, 32, 0.06);
+      cursor: pointer;
+    }
+
+    .admin-body { padding: 18px; }
+
+    .admin-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.18);
+      background: rgba(246, 244, 241, 0.65);
+      margin-bottom: 10px;
+    }
+
+    .admin-row-left { display: flex; align-items: center; gap: 10px; }
+
+    .admin-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.92rem;
+    }
+
+    .admin-actions { display: flex; gap: 8px; align-items: center; }
+
+    .admin-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(42, 36, 32, 0.04);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 160ms ease;
+    }
+    .admin-icon-btn:hover { transform: translateY(-1px); }
+
+    .admin-footer {
+      padding: 16px 18px;
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(184, 155, 114, 0.18);
+      background: rgba(246, 244, 241, 0.85);
+    }
+
+    .admin-btn-main {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.35);
+      background: linear-gradient(135deg, rgba(184,155,114,0.38), rgba(184,155,114,0.18));
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+    }
+
+    .admin-btn-ghost {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(42, 36, 32, 0.04);
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+    }
+
+    .admin-input {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(246, 244, 241, 0.8);
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .admin-help {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(42, 36, 32, 0.7);
+      line-height: 1.6;
+    }
+  </style>
+
+  <style>@view-transition { navigation: auto; }</style> { navigation: auto; }</style>
   <!-- Removed Canva editor SDK (not available on GitHub Pages) -->
 </head>
  <body class="font-body" style="background-color: var(--bg-main);">
   <div class="app-wrapper w-full"><!-- HERO SECTION -->
-   <section class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
+   <section id="hero-section" class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
     <!-- Separated moving background graphics (lines + circles) -->
     <div class="hero-pattern-layer hero-pattern-lines" aria-hidden="true"></div>
     <div class="hero-pattern-layer hero-pattern-circles" aria-hidden="true"></div>
@@ -609,7 +769,7 @@
      </div>
     </div>
    </section><!-- SHOWREEL SECTION -->
-   <section class="showreel-section py-20 md:py-28 px-6">
+   <section id="showreel-section" class="showreel-section py-20 md:py-28 px-6">
     <div class="max-w-5xl mx-auto text-center"><!-- Section Title -->
      <h2 id="showreel-title" class="font-display font-bold tracking-widest text-3xl md:text-4xl mb-4 animate-fade-in" style="color: #F6F4F1; letter-spacing: 0.2em;">DEMO • REEL</h2><!-- Accent Line -->
      <div class="flex justify-center mb-12 md:mb-16">
@@ -646,7 +806,7 @@
      </div>
     </div>
    </section><!-- EXPERIENCE & CAREER SECTION -->
-   <section class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main); overflow: hidden;"><!-- Subtle Background Pattern -->
+   <section id="experience-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main); overflow: hidden;"><!-- Subtle Background Pattern -->
     <div class="absolute inset-0 opacity-[0.08] pointer-events-none" style="animation: subtleFloat 60s ease-in-out infinite;">
      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs>
        <pattern id="theatrical-pattern" x="0" y="0" width="400" height="400" patternunits="userSpaceOnUse"><!-- Film Camera -->
@@ -957,7 +1117,7 @@
     </div><!-- End sections-container -->
    </section>
   </div> <!-- GALLERY SECTION -->
-  <section class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
+  <section id="gallery-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
    <div class="max-w-6xl mx-auto">
     <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">GALLERY</h2><!-- Accent Line -->
     <div class="flex justify-center mb-16">
@@ -993,7 +1153,7 @@
   </div>
 
   <!-- LINKS SECTION -->
-  <section class="showreel-section py-20 md:py-28 px-6">
+  <section id="links-section" class="showreel-section py-20 md:py-28 px-6">
    <div class="max-w-4xl mx-auto">
     <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: #F6F4F1; letter-spacing: 0.2em;">LINKS</h2><!-- Accent Line -->
     <div class="flex justify-center mb-16">
@@ -1067,7 +1227,7 @@
     </div>
    </div>
   </section><!-- CONTACT SECTION -->
-  <section class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
+  <section id="contact-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
    <div class="max-w-4xl mx-auto text-center">
     <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LET'S CONNECT</h2><!-- Accent Line -->
     <div class="flex justify-center mb-8">
@@ -1105,6 +1265,47 @@
    </div>
   </section><!-- Footer spacer -->
   <div class="py-8" style="background-color: var(--bg-main);"></div>
+
+  <!-- Hidden Admin Button (double tap/click) -->
+  <button id="admin-btn" class="admin-btn" aria-label="Admin" title=""></button>
+
+  <!-- Password Modal -->
+  <div id="admin-pass-overlay" class="admin-overlay" aria-hidden="true">
+    <div class="admin-panel">
+      <div class="admin-panel-header">
+        <div class="admin-panel-title">ADMIN ACCESS</div>
+        <button id="admin-pass-close" class="admin-close" aria-label="Close">✕</button>
+      </div>
+      <div class="admin-body">
+        <p class="admin-help" style="margin-bottom: 12px;">Enter password to edit which sections are visible + their order (only on this device/browser).</p>
+        <input id="admin-pass-input" class="admin-input" type="password" inputmode="numeric" placeholder="Password" />
+        <p id="admin-pass-error" class="admin-help" style="margin-top: 10px; color: rgba(150, 30, 30, 0.9); display: none;">Wrong password.</p>
+      </div>
+      <div class="admin-footer">
+        <button id="admin-pass-cancel" class="admin-btn-ghost">CANCEL</button>
+        <button id="admin-pass-go" class="admin-btn-main">GO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Controls Modal -->
+  <div id="admin-overlay" class="admin-overlay" aria-hidden="true">
+    <div class="admin-panel">
+      <div class="admin-panel-header">
+        <div class="admin-panel-title">SECTIONS VISIBILITY + ORDER</div>
+        <button id="admin-close" class="admin-close" aria-label="Close">✕</button>
+      </div>
+      <div class="admin-body">
+        <div id="admin-list"></div>
+        <p class="admin-help" style="margin-top: 10px;">Tip: Use ▲ ▼ to change order. Toggle to hide/show. Changes save automatically.</p>
+        <p class="admin-help" style="margin-top: 6px;">Note: this is not real security (static website). It’s just a hidden control panel.</p>
+      </div>
+      <div class="admin-footer">
+        <button id="admin-reset" class="admin-btn-ghost">RESET</button>
+        <button id="admin-apply" class="admin-btn-main">APPLY</button>
+      </div>
+    </div>
+  </div>
   <script>
     const defaultConfig = {
       actor_name: 'OFIR SHIMONI',
@@ -1478,6 +1679,308 @@
         pointerUp();
       });
     }
+
+    /* =========================
+       ADMIN: Hide/Show + Reorder Sections (localStorage)
+       ========================= */
+    const ADMIN_PASSWORD = '3557';
+    const STORAGE_KEY = 'ofir_site_admin_state_v1';
+
+    const SECTION_DEFS = [
+      { id: 'hero-section', label: 'Hero', baseTheme: 'light' },
+      { id: 'showreel-section', label: 'Demo Reel', baseTheme: 'dark' },
+      { id: 'experience-section', label: 'Resume', baseTheme: 'light' },
+      { id: 'gallery-section', label: 'Gallery', baseTheme: 'light' },
+      { id: 'links-section', label: 'Links', baseTheme: 'dark' },
+      { id: 'contact-section', label: 'Contact', baseTheme: 'light' }
+    ];
+
+    function getDefaultAdminState() {
+      return {
+        order: SECTION_DEFS.map(s => s.id),
+        hidden: {}
+      };
+    }
+
+    function loadAdminState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return getDefaultAdminState();
+        const parsed = JSON.parse(raw);
+        // basic validation
+        if (!parsed || !Array.isArray(parsed.order) || typeof parsed.hidden !== 'object') {
+          return getDefaultAdminState();
+        }
+        // ensure all section ids exist
+        const allIds = new Set(SECTION_DEFS.map(s => s.id));
+        const cleanedOrder = parsed.order.filter(id => allIds.has(id));
+        SECTION_DEFS.forEach(s => { if (!cleanedOrder.includes(s.id)) cleanedOrder.push(s.id); });
+        return { order: cleanedOrder, hidden: parsed.hidden || {} };
+      } catch (e) {
+        return getDefaultAdminState();
+      }
+    }
+
+    function saveAdminState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function applyThemeToSection(sectionEl, theme) {
+      if (!sectionEl) return;
+
+      if (theme === 'dark') {
+        sectionEl.style.background = 'linear-gradient(180deg, #3D352E 0%, #2F2823 100%)';
+        sectionEl.style.setProperty('--text-primary', '#F6F4F1');
+        sectionEl.style.setProperty('--text-secondary', '#A89581');
+        sectionEl.style.setProperty('--bg-main', '#3D352E');
+      } else {
+        sectionEl.style.background = 'var(--bg-main)';
+        sectionEl.style.setProperty('--text-primary', '#2A2420');
+        sectionEl.style.setProperty('--text-secondary', '#6A5F57');
+        sectionEl.style.setProperty('--bg-main', '#F6F4F1');
+      }
+    }
+
+    function applyAdminState(state) {
+      const sections = SECTION_DEFS.map(s => document.getElementById(s.id)).filter(Boolean);
+      if (!sections.length) return;
+
+      // 1) Reorder in DOM (keep them right under .app-wrapper if possible, else under body)
+      const anchor = document.querySelector('.app-wrapper') || document.body;
+
+      // Create a marker so we insert in a stable place
+      let marker = document.getElementById('sections-marker');
+      if (!marker) {
+        marker = document.createElement('div');
+        marker.id = 'sections-marker';
+        marker.style.display = 'none';
+        // put marker at the end of app-wrapper so inserted sections go before lightbox/footers
+        anchor.appendChild(marker);
+      }
+
+      state.order.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          // insert before marker
+          anchor.insertBefore(el, marker);
+        }
+      });
+
+      // 2) Hide / show
+      SECTION_DEFS.forEach((s) => {
+        const el = document.getElementById(s.id);
+        if (!el) return;
+        const isHidden = !!state.hidden[s.id];
+        el.style.display = isHidden ? 'none' : '';
+      });
+
+      // 3) Theme propagation:
+      // Walk through order INCLUDING hidden sections and keep lastTheme.
+      // Apply lastTheme to every visible section.
+      let lastTheme = 'light';
+      state.order.forEach((id) => {
+        const def = SECTION_DEFS.find(d => d.id === id);
+        if (!def) return;
+        lastTheme = def.baseTheme;
+        const el = document.getElementById(id);
+        if (!el) return;
+        const isHidden = !!state.hidden[id];
+        if (!isHidden) {
+          applyThemeToSection(el, lastTheme);
+        }
+      });
+    }
+
+    // --- Admin UI ---
+    const adminBtn = document.getElementById('admin-btn');
+    const passOverlay = document.getElementById('admin-pass-overlay');
+    const passClose = document.getElementById('admin-pass-close');
+    const passCancel = document.getElementById('admin-pass-cancel');
+    const passGo = document.getElementById('admin-pass-go');
+    const passInput = document.getElementById('admin-pass-input');
+    const passError = document.getElementById('admin-pass-error');
+
+    const adminOverlay = document.getElementById('admin-overlay');
+    const adminClose = document.getElementById('admin-close');
+    const adminApply = document.getElementById('admin-apply');
+    const adminReset = document.getElementById('admin-reset');
+    const adminList = document.getElementById('admin-list');
+
+    let adminState = loadAdminState();
+
+    function openOverlay(overlayEl) {
+      if (!overlayEl) return;
+      overlayEl.classList.add('open');
+      overlayEl.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOverlay(overlayEl) {
+      if (!overlayEl) return;
+      overlayEl.classList.remove('open');
+      overlayEl.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function renderAdminList() {
+      if (!adminList) return;
+      adminList.innerHTML = '';
+
+      adminState.order.forEach((id, idx) => {
+        const def = SECTION_DEFS.find(s => s.id === id);
+        if (!def) return;
+
+        const row = document.createElement('div');
+        row.className = 'admin-row';
+
+        const left = document.createElement('div');
+        left.className = 'admin-row-left';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = !adminState.hidden[id];
+        checkbox.style.width = '18px';
+        checkbox.style.height = '18px';
+        checkbox.addEventListener('change', () => {
+          adminState.hidden[id] = !checkbox.checked;
+        });
+
+        const label = document.createElement('div');
+        label.className = 'admin-label';
+        label.textContent = def.label;
+
+        left.appendChild(checkbox);
+        left.appendChild(label);
+
+        const actions = document.createElement('div');
+        actions.className = 'admin-actions';
+
+        const up = document.createElement('button');
+        up.className = 'admin-icon-btn';
+        up.innerHTML = '▲';
+        up.disabled = idx === 0;
+        up.style.opacity = up.disabled ? '0.35' : '1';
+        up.addEventListener('click', () => {
+          if (idx === 0) return;
+          const arr = adminState.order;
+          [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]];
+          renderAdminList();
+        });
+
+        const down = document.createElement('button');
+        down.className = 'admin-icon-btn';
+        down.innerHTML = '▼';
+        down.disabled = idx === adminState.order.length - 1;
+        down.style.opacity = down.disabled ? '0.35' : '1';
+        down.addEventListener('click', () => {
+          if (idx === adminState.order.length - 1) return;
+          const arr = adminState.order;
+          [arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]];
+          renderAdminList();
+        });
+
+        actions.appendChild(up);
+        actions.appendChild(down);
+
+        row.appendChild(left);
+        row.appendChild(actions);
+        adminList.appendChild(row);
+      });
+    }
+
+    function openPassword() {
+      if (passError) passError.style.display = 'none';
+      if (passInput) passInput.value = '';
+      openOverlay(passOverlay);
+      setTimeout(() => { if (passInput) passInput.focus(); }, 50);
+    }
+
+    function openAdminPanel() {
+      renderAdminList();
+      openOverlay(adminOverlay);
+    }
+
+    function closeAllAdmin() {
+      closeOverlay(passOverlay);
+      closeOverlay(adminOverlay);
+    }
+
+    // Double tap/click detection
+    let lastAdminTap = 0;
+    function handleAdminTap() {
+      const now = Date.now();
+      if (now - lastAdminTap < 420) {
+        openPassword();
+        lastAdminTap = 0;
+      } else {
+        lastAdminTap = now;
+      }
+    }
+
+    if (adminBtn) {
+      adminBtn.addEventListener('click', handleAdminTap);
+      adminBtn.addEventListener('touchend', (e) => {
+        // prevent double-trigger on some mobile browsers
+        e.preventDefault();
+        handleAdminTap();
+      }, { passive: false });
+    }
+
+    // Password modal controls
+    if (passClose) passClose.addEventListener('click', () => closeOverlay(passOverlay));
+    if (passCancel) passCancel.addEventListener('click', () => closeOverlay(passOverlay));
+
+    function submitPassword() {
+      const value = (passInput?.value || '').trim();
+      if (value === ADMIN_PASSWORD) {
+        closeOverlay(passOverlay);
+        openAdminPanel();
+      } else {
+        if (passError) passError.style.display = 'block';
+      }
+    }
+
+    if (passGo) passGo.addEventListener('click', submitPassword);
+    if (passInput) {
+      passInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') submitPassword();
+        if (e.key === 'Escape') closeOverlay(passOverlay);
+      });
+    }
+
+    // Admin panel controls
+    if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
+
+    if (adminApply) {
+      adminApply.addEventListener('click', () => {
+        saveAdminState(adminState);
+        applyAdminState(adminState);
+        closeOverlay(adminOverlay);
+      });
+    }
+
+    if (adminReset) {
+      adminReset.addEventListener('click', () => {
+        adminState = getDefaultAdminState();
+        saveAdminState(adminState);
+        applyAdminState(adminState);
+        renderAdminList();
+      });
+    }
+
+    // Close overlays on background click
+    [passOverlay, adminOverlay].forEach((ov) => {
+      if (!ov) return;
+      ov.addEventListener('click', (e) => {
+        if (e.target === ov) closeOverlay(ov);
+      });
+    });
+
+    // Apply saved state on load
+    window.addEventListener('load', () => {
+      adminState = loadAdminState();
+      applyAdminState(adminState);
+    });
 
   </script>
  </body>
