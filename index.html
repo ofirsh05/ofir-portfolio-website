@@ -38,6 +38,10 @@
       --text-secondary: #6A5F57;
       --accent: #B89B72;
       --showreel-bg: #3D352E;
+
+      /* Adaptive card styling (used by LINKS section when themes shift) */
+      --card-bg: rgba(42, 36, 32, 0.04);
+      --card-border: rgba(184, 155, 114, 0.25);
     }
 
     .font-display {
@@ -102,12 +106,22 @@
     }
 
     .hero-pattern-circles {
-      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='500' cy='100' r='80' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.1'/%3E%3Ccircle cx='100' cy='500' r='120' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.08'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='500' cy='100' r='80' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.1'/%3E%3C/svg%3E");
       background-size: 100% 100%;
       background-position: center;
-      animation: heroCirclesMove 26s ease-in-out infinite;
+      animation: heroCircleA 28s ease-in-out infinite;
       transform-origin: center;
       opacity: 1;
+    }
+
+    .hero-pattern-circles::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='500' r='120' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: center;
+      animation: heroCircleB 34s ease-in-out infinite;
     }
 
     @keyframes heroLinesMove {
@@ -117,8 +131,19 @@
       75% { transform: translate3d(-60px, -22px, 0) scale(1.05); }
     }
 
-    @keyframes heroCirclesMove {
+    @keyframes heroCircleA {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-34px, -18px, 0) scale(1.05); }
+      50% { transform: translate3d(28px, -46px, 0) scale(0.97); }
+      75% { transform: translate3d(44px, -12px, 0) scale(1.04); }
+    }
+
+    @keyframes heroCircleB {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(22px, -40px, 0) scale(1.06); }
+      50% { transform: translate3d(-36px, -24px, 0) scale(0.96); }
+      75% { transform: translate3d(-18px, -52px, 0) scale(1.03); }
+    }
       25% { transform: translate3d(-40px, -22px, 0) scale(1.05); }
       50% { transform: translate3d(34px, -52px, 0) scale(0.98); }
       75% { transform: translate3d(52px, -18px, 0) scale(1.04); }
@@ -226,6 +251,65 @@
     .delay-500 { animation-delay: 0.5s; }
 
     /* HERO MOVING ORBS (Hero section circles) */
+
+    /* RESUME MOVING ORBS (Experience/Resume section background) */
+    /*
+      NOTE:
+      - Orbs are decorative and sit under ALL resume tabs.
+      - We also add a repeating pattern via #experience-section::before (below).
+    */
+
+    #experience-section { position: relative; }
+
+    #experience-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.10;
+      background-repeat: repeat;
+      background-size: 420px 420px;
+      background-position: 0 0;
+      animation: resumePatternDrift 60s ease-in-out infinite;
+      background-image: url("data:image/svg+xml,%3Csvg width='420' height='420' viewBox='0 0 420 420' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B89B72' stroke-width='1.5' opacity='1'%3E%3C!-- Film Camera --%3E%3Cg transform='translate(38 50)'%3E%3Crect x='0' y='20' width='80' height='50' rx='4'/%3E%3Ccircle cx='40' cy='45' r='18'/%3E%3Ccircle cx='40' cy='45' r='12' stroke-width='1'/%3E%3Crect x='80' y='30' width='15' height='30'/%3E%3Crect x='-5' y='15' width='10' height='10' stroke-width='1'/%3E%3Crect x='-5' y='65' width='10' height='10' stroke-width='1'/%3E%3C/g%3E%3C!-- Spotlight --%3E%3Cg transform='translate(265 210)'%3E%3Ccircle cx='0' cy='0' r='25'/%3E%3Ccircle cx='0' cy='0' r='15' stroke-width='1'/%3E%3Cpath d='M -20 -20 L -35 -35 M 20 -20 L 35 -35 M -20 20 L -35 35 M 20 20 L 35 35' stroke-linecap='round'/%3E%3Cline x1='0' y1='-25' x2='0' y2='-40'/%3E%3Crect x='-8' y='-50' width='16' height='10' rx='2'/%3E%3C/g%3E%3C!-- Reel --%3E%3Cg transform='translate(300 88)'%3E%3Ccircle cx='0' cy='0' r='30'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='15' cy='0' r='4' stroke-width='1'/%3E%3Ccircle cx='-15' cy='0' r='4' stroke-width='1'/%3E%3Ccircle cx='0' cy='15' r='4' stroke-width='1'/%3E%3Ccircle cx='0' cy='-15' r='4' stroke-width='1'/%3E%3Ccircle cx='11' cy='11' r='4' stroke-width='1'/%3E%3Ccircle cx='-11' cy='-11' r='4' stroke-width='1'/%3E%3Ccircle cx='11' cy='-11' r='4' stroke-width='1'/%3E%3Ccircle cx='-11' cy='11' r='4' stroke-width='1'/%3E%3C/g%3E%3C!-- Clapper --%3E%3Cg transform='translate(110 270)'%3E%3Crect x='0' y='15' width='60' height='45' rx='2'/%3E%3Cpath d='M 0 15 L 10 0 L 70 0 L 60 15 Z'/%3E%3Cline x1='15' y1='0' x2='10' y2='15'/%3E%3Cline x1='30' y1='0' x2='25' y2='15'/%3E%3Cline x1='45' y1='0' x2='40' y2='15'/%3E%3Cline x1='60' y1='0' x2='55' y2='15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    @keyframes resumePatternDrift {
+      0%, 100% { background-position: 0 0; }
+      25% { background-position: 18px -22px; }
+      50% { background-position: -12px -34px; }
+      75% { background-position: -22px -14px; }
+    }
+
+    .resume-orb {
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      opacity: 0.18;
+      background: radial-gradient(circle at 30% 30%, rgba(184, 155, 114, 0.22), rgba(184, 155, 114, 0.03));
+      box-shadow:
+        inset 0 0 18px rgba(255, 255, 255, 0.07),
+        0 0 34px rgba(184, 155, 114, 0.10);
+      filter: blur(0.3px);
+      animation: resumeDrift 34s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    @keyframes resumeDrift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      25% { transform: translate3d(26px, -22px, 0) scale(1.04); }
+      50% { transform: translate3d(-18px, -34px, 0) scale(0.97); }
+      75% { transform: translate3d(-28px, -16px, 0) scale(1.02); }
+    }
+
+    /* Place orbs across the full section height (top + mid + bottom) */
+    .resume-orb-1 { width: 170px; height: 170px; top: 8%; left: 6%; animation-duration: 38s; }
+    .resume-orb-2 { width: 120px; height: 120px; top: 24%; right: 10%; animation-duration: 34s; animation-delay: 1.2s; }
+    .resume-orb-3 { width: 150px; height: 150px; top: 58%; left: 10%; animation-duration: 36s; animation-delay: 2.6s; }
+    .resume-orb-4 { width: 110px; height: 110px; bottom: 12%; right: 12%; animation-duration: 30s; animation-delay: 0.7s; }
+
     .hero-orb {
       position: absolute;
       border-radius: 9999px;
@@ -437,6 +521,8 @@
 
     /* Active indicator positioned under button */
     #active-tab-indicator {
+      z-index: 5;
+      opacity: 1;
       position: absolute;
       height: 2px;
       background: var(--accent);
@@ -736,7 +822,7 @@
     }
   </style>
 
-  <style>@view-transition { navigation: auto; }</style> { navigation: auto; }</style>
+  <style>@view-transition { navigation: auto; }</style>
   <!-- Removed Canva editor SDK (not available on GitHub Pages) -->
 </head>
  <body class="font-body" style="background-color: var(--bg-main);">
@@ -774,30 +860,22 @@
      <h2 id="showreel-title" class="font-display font-bold tracking-widest text-3xl md:text-4xl mb-4 animate-fade-in" style="color: #F6F4F1; letter-spacing: 0.2em;">DEMO • REEL</h2><!-- Accent Line -->
      <div class="flex justify-center mb-12 md:mb-16">
       <div class="accent-line"></div>
-     </div><!-- Coming Soon Container -->
-     <div class="video-container rounded-xl overflow-hidden mx-auto relative" style="max-width: 900px; min-height: 500px;">
-      <div class="relative w-full h-full flex items-center justify-center" style="min-height: 500px; background: linear-gradient(135deg, #3D352E 0%, #2F2823 50%, #3D352E 100%);"><!-- Floating Bubbles -->
-       <div class="bubble bubble-1"></div>
-       <div class="bubble bubble-2"></div>
-       <div class="bubble bubble-3"></div>
-       <div class="bubble bubble-4"></div>
-       <div class="bubble bubble-5"></div>
-       <div class="bubble bubble-6"></div>
-       <div class="bubble bubble-7"></div>
-       <div class="bubble bubble-8"></div><!-- Coming Soon Content -->
-       <div class="relative z-10 text-center px-8">
-        <div class="mb-8">
-         <svg width="80" height="80" viewbox="0 0 80 80" fill="none" class="mx-auto opacity-40"><circle cx="40" cy="40" r="38" stroke="#B89B72" stroke-width="2" stroke-dasharray="4 4" /> <path d="M25 40 L35 50 L55 30" stroke="#B89B72" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-         </svg>
-        </div>
-        <h3 class="font-display font-light tracking-widest mb-4" style="color: #B89B72; font-size: 1rem; letter-spacing: 0.4em;">DEMO REEL</h3>
-        <h2 class="font-display font-semibold mb-6" style="color: #F6F4F1; font-size: 3.5rem; letter-spacing: 0.05em;">Coming Soon</h2>
-        <div class="accent-line mx-auto mb-6"></div>
-        <p class="font-body font-light" style="color: #A89581; font-size: 1.1rem; line-height: 1.8; max-width: 500px; margin: 0 auto;">Currently crafting something extraordinary.<br>
-         Stay tuned for the unveiling.</p>
-       </div>
+     </div><!-- Video Embed Container -->
+     <div class="video-container rounded-xl overflow-hidden mx-auto relative" style="max-width: 900px;">
+      <div class="relative w-full" style="padding-top: 56.25%; background: linear-gradient(135deg, #3D352E 0%, #2F2823 50%, #3D352E 100%);">
+        <iframe
+          src="https://www.youtube.com/embed/sisTW0t2Rv0?si=PBpUSHRA9g8tR76Q"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          class="absolute inset-0 w-full h-full">
+        </iframe>
       </div>
-     </div><!-- Subtle decorative element below video -->
+     </div>
+
+     <!-- Subtle decorative element below video -->
      <div class="mt-12 flex justify-center items-center gap-4 opacity-30">
       <div class="w-8 h-px" style="background-color: var(--accent);"></div>
       <svg width="12" height="12" viewbox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="2" fill="#B89B72" />
@@ -806,50 +884,14 @@
      </div>
     </div>
    </section><!-- EXPERIENCE & CAREER SECTION -->
-   <section id="experience-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main); overflow: hidden;"><!-- Subtle Background Pattern -->
-    <div class="absolute inset-0 opacity-[0.08] pointer-events-none" style="animation: subtleFloat 60s ease-in-out infinite;">
-     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs>
-       <pattern id="theatrical-pattern" x="0" y="0" width="400" height="400" patternunits="userSpaceOnUse"><!-- Film Camera -->
-        <g transform="translate(50, 50)">
-         <rect x="0" y="20" width="80" height="50" fill="none" stroke="#B89B72" stroke-width="1.5" rx="4" />
-         <circle cx="40" cy="45" r="18" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <circle cx="40" cy="45" r="12" fill="none" stroke="#B89B72" stroke-width="1" />
-         <rect x="80" y="30" width="15" height="30" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <rect x="-5" y="15" width="10" height="10" fill="none" stroke="#B89B72" stroke-width="1" />
-         <rect x="-5" y="65" width="10" height="10" fill="none" stroke="#B89B72" stroke-width="1" />
-        </g> <!-- Spotlight/Projector -->
-        <g transform="translate(250, 200)">
-         <circle cx="0" cy="0" r="25" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <circle cx="0" cy="0" r="15" fill="none" stroke="#B89B72" stroke-width="1" />
-         <path d="M -20 -20 L -35 -35 M 20 -20 L 35 -35 M -20 20 L -35 35 M 20 20 L 35 35" stroke="#B89B72" stroke-width="1.5" stroke-linecap="round" />
-         <line x1="0" y1="-25" x2="0" y2="-40" stroke="#B89B72" stroke-width="1.5" />
-         <rect x="-8" y="-50" width="16" height="10" fill="none" stroke="#B89B72" stroke-width="1.5" rx="2" />
-        </g> <!-- Film Reel -->
-        <g transform="translate(280, 80)">
-         <circle cx="0" cy="0" r="30" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <circle cx="0" cy="0" r="8" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <circle cx="15" cy="0" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="-15" cy="0" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="0" cy="15" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="0" cy="-15" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="11" cy="11" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="-11" cy="-11" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="11" cy="-11" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-         <circle cx="-11" cy="11" r="4" fill="none" stroke="#B89B72" stroke-width="1" />
-        </g> <!-- Clapperboard -->
-        <g transform="translate(120, 250)">
-         <rect x="0" y="15" width="60" height="45" fill="none" stroke="#B89B72" stroke-width="1.5" rx="2" />
-         <path d="M 0 15 L 10 0 L 70 0 L 60 15 Z" fill="none" stroke="#B89B72" stroke-width="1.5" />
-         <line x1="15" y1="0" x2="10" y2="15" stroke="#B89B72" stroke-width="1.5" />
-         <line x1="30" y1="0" x2="25" y2="15" stroke="#B89B72" stroke-width="1.5" />
-         <line x1="45" y1="0" x2="40" y2="15" stroke="#B89B72" stroke-width="1.5" />
-         <line x1="60" y1="0" x2="55" y2="15" stroke="#B89B72" stroke-width="1.5" />
-        </g>
-       </pattern>
-      </defs> <rect width="100%" height="100%" fill="url(#theatrical-pattern)" />
-     </svg>
-    </div>
-    <div class="max-w-4xl mx-auto relative z-10"><!-- Navigation Tabs -->
+   <section id="experience-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main); overflow: hidden;">
+    <!-- Moving orbs in Resume background (subtle) -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
+      <div class="resume-orb resume-orb-1"></div>
+      <div class="resume-orb resume-orb-2"></div>
+      <div class="resume-orb resume-orb-3"></div>
+      <div class="resume-orb resume-orb-4"></div>
+    </div><div class="max-w-4xl mx-auto relative z-10" style="isolation:isolate;"><!-- Navigation Tabs -->
      <div class="tabs-wrapper flex justify-center mb-16">
       <div class="inline-flex flex-wrap justify-center gap-4 relative"><button onclick="showSection('acting-education', this)" data-section="acting-education" class="section-tab-new active font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Acting Education </button> <button onclick="showSection('singing-education', this)" data-section="singing-education" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Singing Education </button> <button onclick="showSection('experience-studies', this)" data-section="experience-studies" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Experience Within Studies </button> <button onclick="showSection('teaching-experience', this)" data-section="teaching-experience" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Teaching Experience </button> <button onclick="showSection('films', this)" data-section="films" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Films </button> <button onclick="showSection('personal-details', this)" data-section="personal-details" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Personal Details </button>
       </div><!-- Active indicator line -->
@@ -1134,7 +1176,8 @@
      </div><!-- Photo Placeholder 5 -->
      <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/pdFdBm4Q/035A8673.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
      </div><!-- Photo Placeholder 6 -->
-     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/hPsMSjCP/035A8712.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;"> alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox>
+      <img src="https://i.postimg.cc/hPsMSjCP/035A8712.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
      </div>
     </div>
    </div>
@@ -1153,14 +1196,13 @@
   </div>
 
   <!-- LINKS SECTION -->
-  <section id="links-section" class="showreel-section py-20 md:py-28 px-6">
-   <div class="max-w-4xl mx-auto">
-    <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: #F6F4F1; letter-spacing: 0.2em;">LINKS</h2><!-- Accent Line -->
+  <section id="links-section" class="showreel-section py-20 md:py-28 px-6" style="--text-primary:#F6F4F1; --text-secondary:#C9BBAA;"><h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LINKS</h2><!-- Accent Line -->
     <div class="flex justify-center mb-16">
      <div class="accent-line"></div>
     </div>
     <div class="space-y-6"><!-- Link Card 1 --> <a href="#" target="_blank" rel="noopener noreferrer" class="block group">
-      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: rgba(246, 244, 241, 0.05); border: 1px solid rgba(184, 155, 114, 0.2);">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
        <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
@@ -1168,15 +1210,16 @@
           </svg>
          </div>
          <div>
-          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: #F6F4F1;">Link Title 1</h3>
-          <p class="font-body text-sm" style="color: #A89581;">Brief description of this link</p>
+          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Link Title 1</h3>
+          <p class="font-body text-sm" style="color: var(--text-secondary);">Brief description of this link</p>
          </div>
         </div>
         <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
        </div>
       </div></a> <!-- Link Card 2 --> <a href="#" target="_blank" rel="noopener noreferrer" class="block group">
-      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: rgba(246, 244, 241, 0.05); border: 1px solid rgba(184, 155, 114, 0.2);">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
        <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
@@ -1184,15 +1227,16 @@
           </svg>
          </div>
          <div>
-          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: #F6F4F1;">Link Title 2</h3>
-          <p class="font-body text-sm" style="color: #A89581;">Brief description of this link</p>
+          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Link Title 2</h3>
+          <p class="font-body text-sm" style="color: var(--text-secondary);">Brief description of this link</p>
          </div>
         </div>
         <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
        </div>
       </div></a> <!-- Link Card 3 --> <a href="#" target="_blank" rel="noopener noreferrer" class="block group">
-      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: rgba(246, 244, 241, 0.05); border: 1px solid rgba(184, 155, 114, 0.2);">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
        <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
@@ -1200,15 +1244,16 @@
           </svg>
          </div>
          <div>
-          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: #F6F4F1;">Link Title 3</h3>
-          <p class="font-body text-sm" style="color: #A89581;">Brief description of this link</p>
+          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Link Title 3</h3>
+          <p class="font-body text-sm" style="color: var(--text-secondary);">Brief description of this link</p>
          </div>
         </div>
         <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
        </div>
       </div></a> <!-- Link Card 4 --> <a href="#" target="_blank" rel="noopener noreferrer" class="block group">
-      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: rgba(246, 244, 241, 0.05); border: 1px solid rgba(184, 155, 114, 0.2);">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
        <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
@@ -1216,8 +1261,8 @@
           </svg>
          </div>
          <div>
-          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: #F6F4F1;">Link Title 4</h3>
-          <p class="font-body text-sm" style="color: #A89581;">Brief description of this link</p>
+          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Link Title 4</h3>
+          <p class="font-body text-sm" style="color: var(--text-secondary);">Brief description of this link</p>
          </div>
         </div>
         <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1229,41 +1274,61 @@
   </section><!-- CONTACT SECTION -->
   <section id="contact-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
    <div class="max-w-4xl mx-auto text-center">
-    <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LET'S CONNECT</h2><!-- Accent Line -->
+    <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LET'S CONNECT</h2>
+    <!-- Accent Line -->
     <div class="flex justify-center mb-8">
      <div class="accent-line"></div>
     </div>
-    <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p><!-- Contact Buttons -->
-    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12"><!-- Email Button --> <a href="mailto:Ofirsh0505@gmail.com" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
-      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#F6F4F1" stroke-width="2" /> <path d="M3 7l9 6 9-6" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <div class="text-left">
-       <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">
-        EMAIL
-       </div>
-       <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">
-        Ofirsh0505@gmail.com
-       </div>
-      </div></a> <!-- Phone Button --> <a href="tel:+972526513355" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
-      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <div class="text-left">
-       <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">
-        PHONE
-       </div>
-       <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">
-        +972 52 651 3355
-       </div>
-      </div></a>
-    </div><!-- Instagram Link -->
-    <div class="flex justify-center"><a href="https://www.instagram.com/Ofirshi_" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300" style="border: 2px solid var(--accent);">
-      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" class="group-hover:scale-110 transition-transform"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2" style="color: var(--accent);" /> <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" style="color: var(--accent);" /> <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor" style="color: var(--accent);" />
-      </svg><span class="font-display font-semibold tracking-wider" style="color: var(--text-primary);">@Ofirshi_</span>
-      <svg width="16" height="16" viewbox="0 0 16 16" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);" />
-      </svg></a>
+
+    <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p>
+
+    <!-- Contact Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+
+      <!-- Email Button -->
+      <a href="mailto:Ofirsh0505@gmail.com" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="#F6F4F1" stroke-width="2" />
+          <path d="M3 7l9 6 9-6" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="text-left">
+          <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">EMAIL</div>
+          <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">Ofirsh0505@gmail.com</div>
+        </div>
+      </a>
+
+      <!-- Phone Button -->
+      <a href="tel:+972526513355" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="text-left">
+          <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">PHONE</div>
+          <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">+972 52 651 3355</div>
+        </div>
+      </a>
+
     </div>
+
+    <!-- Instagram Link -->
+    <div class="flex justify-center">
+      <a href="https://www.instagram.com/Ofirshi_" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300" style="border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="group-hover:scale-110 transition-transform">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2" style="color: var(--accent);" />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" style="color: var(--accent);" />
+          <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor" style="color: var(--accent);" />
+        </svg>
+        <span class="font-display font-semibold tracking-wider" style="color: var(--text-primary);">@Ofirshi_</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="group-hover:translate-x-1 transition-transform">
+          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);" />
+        </svg>
+      </a>
+    </div>
+
    </div>
-  </section><!-- Footer spacer -->
+  </section>
+
+  <!-- Footer spacer -->
   <div class="py-8" style="background-color: var(--bg-main);"></div>
 
   <!-- Hidden Admin Button (double tap/click) -->
@@ -1498,13 +1563,20 @@
       updateActiveIndicator(buttonEl);
     }
 
-    // Initialize active indicator on page load
-    window.addEventListener('load', () => {
+    function initActiveIndicator() {
       const activeTab = document.querySelector('.section-tab-new.active');
-      if (activeTab) {
-        updateActiveIndicator(activeTab);
-      }
-    });
+      if (!activeTab) return;
+
+      // Run a few times to catch late layout/font/tailwind injection
+      requestAnimationFrame(() => updateActiveIndicator(activeTab));
+      setTimeout(() => updateActiveIndicator(activeTab), 0);
+      setTimeout(() => updateActiveIndicator(activeTab), 250);
+      setTimeout(() => updateActiveIndicator(activeTab), 650);
+    }
+
+    // Initialize active indicator early + after full load
+    document.addEventListener('DOMContentLoaded', initActiveIndicator);
+    window.addEventListener('load', initActiveIndicator);
 
     // Update indicator on window resize
     window.addEventListener('resize', () => {
@@ -1743,7 +1815,7 @@
       }
     }
 
-    function applyAdminState(state)(state) {
+    function applyAdminState(state) {
       const sections = SECTION_DEFS.map(s => document.getElementById(s.id)).filter(Boolean);
       if (!sections.length) return;
 
@@ -1776,27 +1848,21 @@
         el.style.display = isHidden ? 'none' : '';
       });
 
-      // 3) Theme propagation:
-      // Rule: a visible section inherits the theme of the last section in the ORDER,
-      // even if that last section is hidden (so hiding a section still affects the flow).
-      // We also apply the theme to hidden sections so when you show them again they are correct.
-      let lastTheme = 'light';
-      state.order.forEach((id) => {
-        const def = SECTION_DEFS.find(d => d.id === id);
-        if (!def) return;
-        lastTheme = def.baseTheme;
-        const el = document.getElementById(id);
+      // 3) Theme application (NO inheritance)
+      SECTION_DEFS.forEach((def) => {
+        const el = document.getElementById(def.id);
         if (!el) return;
-        applyThemeToSection(el, lastTheme);
+        applyThemeToSection(el, def.baseTheme);
       });
 
-      // 4) Page background follows the first visible section
+      // 4) Page background follows first visible section base theme
       const firstVisibleId = state.order.find(id => !state.hidden[id]);
       if (firstVisibleId) {
-        const firstDef = SECTION_DEFS.find(d => d.id === firstVisibleId);
-        const pageTheme = firstDef?.baseTheme || 'light';
-        document.body.style.backgroundColor = (pageTheme === 'dark') ? '#3D352E' : '#F6F4F1';
+        const def = SECTION_DEFS.find(d => d.id === firstVisibleId);
+        const theme = def?.baseTheme || 'light';
+        document.body.style.backgroundColor = theme === 'dark' ? '#3D352E' : '#F6F4F1';
       }
+
     }
 
     // --- Admin UI ---
@@ -1984,10 +2050,30 @@
       });
     });
 
+    // --- Basic self-tests (runs in console; does not affect UI) ---
+    function runSelfTests() {
+      try {
+        if (typeof applyAdminState !== 'function') throw new Error('applyAdminState is not a function');
+        if (!Array.isArray(adminState?.order)) throw new Error('adminState.order must be an array');
+        const ids = new Set(SECTION_DEFS.map(s => s.id));
+        adminState.order.forEach((id) => {
+          if (!ids.has(id)) console.warn('[SelfTest] Unknown section id in order:', id);
+        });
+        // Option 2 theme rule: last section in ORDER drives theme progression even if hidden
+        const lastId = adminState.order[adminState.order.length - 1];
+        const lastDef = SECTION_DEFS.find(d => d.id === lastId);
+        if (!lastDef) console.warn('[SelfTest] Last section definition not found for:', lastId);
+        console.log('[SelfTest] OK');
+      } catch (err) {
+        console.error('[SelfTest] FAILED:', err);
+      }
+    }
+
     // Apply saved state on load
     window.addEventListener('load', () => {
       adminState = loadAdminState();
       applyAdminState(adminState);
+      runSelfTests();
     });
 
   </script>
