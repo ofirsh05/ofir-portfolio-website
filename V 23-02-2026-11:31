@@ -1,0 +1,2147 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ofir Shimoni | Actor &amp; Performer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Removed Canva editor SDK (not available on GitHub Pages) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    :root {
+      --bg-main: #F6F4F1;
+      --text-primary: #2A2420;
+      --text-secondary: #6A5F57;
+      --accent: #B89B72;
+      --showreel-bg: #3D352E;
+
+      /* Adaptive card styling (used by LINKS section when themes shift) */
+      --card-bg: rgba(42, 36, 32, 0.04);
+      --card-border: rgba(184, 155, 114, 0.25);
+    }
+
+    .font-display {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .font-body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Prevent any accidental horizontal layout overflow on mobile */
+    .app-wrapper {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    /* Subtle decorative background pattern */
+    .hero-pattern {
+      position: relative;
+    }
+
+    .hero-pattern::before {
+      /* disabled because we now split the hero graphics into 2 separate layers */
+      content: none;
+    }
+
+    @keyframes heroPatternMove {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 1;
+      }
+      25% {
+        transform: translate3d(45px, -32px, 0) scale(1.06);
+        opacity: 0.95;
+      }
+      50% {
+        transform: translate3d(-38px, -58px, 0) scale(0.98);
+        opacity: 1;
+      }
+      75% {
+        transform: translate3d(-52px, -24px, 0) scale(1.045);
+        opacity: 0.97;
+      }
+    }
+
+    /* OPTIONAL: separate movement layers for hero background elements */
+    .hero-pattern-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-pattern-lines {
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M300 50 Q450 150 400 300 Q350 450 200 400 Q50 350 100 200 Q150 50 300 50' fill='none' stroke='%23B89B72' stroke-width='3' opacity='0.15'/%3E%3Cpath d='M350 100 Q480 200 420 340 Q360 480 220 420 Q80 360 140 220 Q200 80 350 100' fill='none' stroke='%23B89B72' stroke-width='2.5' opacity='0.12'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: center;
+      animation: heroLinesMove 18s ease-in-out infinite;
+      transform-origin: center;
+      opacity: 1;
+    }
+
+    .hero-pattern-circles {
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='500' cy='100' r='80' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.1'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: center;
+      animation: heroCircleA 28s ease-in-out infinite;
+      transform-origin: center;
+      opacity: 1;
+    }
+
+    .hero-pattern-circles::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='500' r='120' fill='none' stroke='%23B89B72' stroke-width='2' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: center;
+      animation: heroCircleB 34s ease-in-out infinite;
+    }
+
+    @keyframes heroLinesMove {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(55px, -36px, 0) scale(1.07); }
+      50% { transform: translate3d(-44px, -64px, 0) scale(0.985); }
+      75% { transform: translate3d(-60px, -22px, 0) scale(1.05); }
+    }
+
+    @keyframes heroCircleA {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-34px, -18px, 0) scale(1.05); }
+      50% { transform: translate3d(28px, -46px, 0) scale(0.97); }
+      75% { transform: translate3d(44px, -12px, 0) scale(1.04); }
+    }
+
+    @keyframes heroCircleB {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(22px, -40px, 0) scale(1.06); }
+      50% { transform: translate3d(-36px, -24px, 0) scale(0.96); }
+      75% { transform: translate3d(-18px, -52px, 0) scale(1.03); }
+    }
+      25% { transform: translate3d(-40px, -22px, 0) scale(1.05); }
+      50% { transform: translate3d(34px, -52px, 0) scale(0.98); }
+      75% { transform: translate3d(52px, -18px, 0) scale(1.04); }
+    }
+
+    .accent-line {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .portrait-frame {
+      background: linear-gradient(145deg, #ffffff 0%, #f0ede8 100%);
+      box-shadow: 
+        0 25px 50px -12px rgba(42, 36, 32, 0.15),
+        0 0 0 1px rgba(184, 155, 114, 0.1);
+    }
+
+    .showreel-section {
+      background: linear-gradient(180deg, #3D352E 0%, #2F2823 100%);
+    }
+
+    .video-container {
+      box-shadow: 
+        0 30px 60px -15px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes lineExpand {
+      from { width: 0; }
+      to { width: 80px; }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-line {
+      animation: lineExpand 0.8s ease-out forwards;
+      animation-delay: 0.3s;
+      width: 0;
+    }
+
+    /* Mobile polish: prevent headline overflow and tighten tracking */
+    @media (max-width: 520px) {
+      #actor-name {
+        letter-spacing: 0.06em !important;
+        padding-left: 6px;
+        padding-right: 6px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      #actor-title {
+        letter-spacing: 0.14em !important;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .tabs-wrapper .section-tab-new {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.6rem;
+      }
+
+      /* Reduce showreel height on small phones */
+      .video-container {
+        min-height: 380px !important;
+      }
+
+      .video-container > div {
+        min-height: 380px !important;
+      }
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    /* HERO MOVING ORBS (Hero section circles) */
+
+    /* RESUME MOVING ORBS (Experience/Resume section background) */
+    /*
+      NOTE:
+      - Orbs are decorative and sit under ALL resume tabs.
+      - We also add a repeating pattern via #experience-section::before (below).
+    */
+
+    #experience-section { position: relative; }
+
+    #experience-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.10;
+      background-repeat: repeat;
+      background-size: 420px 420px;
+      background-position: 0 0;
+      animation: resumePatternDrift 60s ease-in-out infinite;
+      background-image: url("data:image/svg+xml,%3Csvg width='420' height='420' viewBox='0 0 420 420' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B89B72' stroke-width='1.5' opacity='1'%3E%3C!-- Film Camera --%3E%3Cg transform='translate(38 50)'%3E%3Crect x='0' y='20' width='80' height='50' rx='4'/%3E%3Ccircle cx='40' cy='45' r='18'/%3E%3Ccircle cx='40' cy='45' r='12' stroke-width='1'/%3E%3Crect x='80' y='30' width='15' height='30'/%3E%3Crect x='-5' y='15' width='10' height='10' stroke-width='1'/%3E%3Crect x='-5' y='65' width='10' height='10' stroke-width='1'/%3E%3C/g%3E%3C!-- Spotlight --%3E%3Cg transform='translate(265 210)'%3E%3Ccircle cx='0' cy='0' r='25'/%3E%3Ccircle cx='0' cy='0' r='15' stroke-width='1'/%3E%3Cpath d='M -20 -20 L -35 -35 M 20 -20 L 35 -35 M -20 20 L -35 35 M 20 20 L 35 35' stroke-linecap='round'/%3E%3Cline x1='0' y1='-25' x2='0' y2='-40'/%3E%3Crect x='-8' y='-50' width='16' height='10' rx='2'/%3E%3C/g%3E%3C!-- Reel --%3E%3Cg transform='translate(300 88)'%3E%3Ccircle cx='0' cy='0' r='30'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='15' cy='0' r='4' stroke-width='1'/%3E%3Ccircle cx='-15' cy='0' r='4' stroke-width='1'/%3E%3Ccircle cx='0' cy='15' r='4' stroke-width='1'/%3E%3Ccircle cx='0' cy='-15' r='4' stroke-width='1'/%3E%3Ccircle cx='11' cy='11' r='4' stroke-width='1'/%3E%3Ccircle cx='-11' cy='-11' r='4' stroke-width='1'/%3E%3Ccircle cx='11' cy='-11' r='4' stroke-width='1'/%3E%3Ccircle cx='-11' cy='11' r='4' stroke-width='1'/%3E%3C/g%3E%3C!-- Clapper --%3E%3Cg transform='translate(110 270)'%3E%3Crect x='0' y='15' width='60' height='45' rx='2'/%3E%3Cpath d='M 0 15 L 10 0 L 70 0 L 60 15 Z'/%3E%3Cline x1='15' y1='0' x2='10' y2='15'/%3E%3Cline x1='30' y1='0' x2='25' y2='15'/%3E%3Cline x1='45' y1='0' x2='40' y2='15'/%3E%3Cline x1='60' y1='0' x2='55' y2='15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    @keyframes resumePatternDrift {
+      0%, 100% { background-position: 0 0; }
+      25% { background-position: 18px -22px; }
+      50% { background-position: -12px -34px; }
+      75% { background-position: -22px -14px; }
+    }
+
+    .resume-orb {
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      opacity: 0.18;
+      background: radial-gradient(circle at 30% 30%, rgba(184, 155, 114, 0.22), rgba(184, 155, 114, 0.03));
+      box-shadow:
+        inset 0 0 18px rgba(255, 255, 255, 0.07),
+        0 0 34px rgba(184, 155, 114, 0.10);
+      filter: blur(0.3px);
+      animation: resumeDrift 34s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    @keyframes resumeDrift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      25% { transform: translate3d(26px, -22px, 0) scale(1.04); }
+      50% { transform: translate3d(-18px, -34px, 0) scale(0.97); }
+      75% { transform: translate3d(-28px, -16px, 0) scale(1.02); }
+    }
+
+    /* Place orbs across the full section height (top + mid + bottom) */
+    .resume-orb-1 { width: 170px; height: 170px; top: 8%; left: 6%; animation-duration: 38s; }
+    .resume-orb-2 { width: 120px; height: 120px; top: 24%; right: 10%; animation-duration: 34s; animation-delay: 1.2s; }
+    .resume-orb-3 { width: 150px; height: 150px; top: 58%; left: 10%; animation-duration: 36s; animation-delay: 2.6s; }
+    .resume-orb-4 { width: 110px; height: 110px; bottom: 12%; right: 12%; animation-duration: 30s; animation-delay: 0.7s; }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      opacity: 0.35;
+      filter: blur(0.2px);
+      background: radial-gradient(circle at 30% 30%, rgba(184, 155, 114, 0.22), rgba(184, 155, 114, 0.03));
+      box-shadow:
+        inset 0 0 22px rgba(255, 255, 255, 0.08),
+        0 0 40px rgba(184, 155, 114, 0.12);
+      animation: heroDrift 26s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes heroDrift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      25% { transform: translate3d(32px, -28px, 0) scale(1.06); }
+      50% { transform: translate3d(-26px, -54px, 0) scale(0.94); }
+      75% { transform: translate3d(-38px, -22px, 0) scale(1.03); }
+    }
+
+    .hero-orb-1 { width: 180px; height: 180px; top: 10%; left: 6%; animation-duration: 30s; }
+    .hero-orb-2 { width: 120px; height: 120px; top: 18%; right: 10%; animation-duration: 26s; animation-delay: 1.5s; }
+    .hero-orb-3 { width: 150px; height: 150px; bottom: 18%; left: 14%; animation-duration: 28s; animation-delay: 3s; }
+    .hero-orb-4 { width: 90px; height: 90px; bottom: 22%; right: 12%; animation-duration: 22s; animation-delay: 0.8s; }
+    .hero-orb-5 { width: 110px; height: 110px; top: 52%; left: 4%; animation-duration: 24s; animation-delay: 2.2s; }
+    .hero-orb-6 { width: 95px; height: 95px; top: 58%; right: 6%; animation-duration: 27s; animation-delay: 4.2s; }
+
+    /* Floating Bubbles */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.05));
+      box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(184, 155, 114, 0.15);
+      animation: float 20s infinite ease-in-out;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(30px, -40px) scale(1.1);
+      }
+      50% {
+        transform: translate(-20px, -80px) scale(0.9);
+      }
+      75% {
+        transform: translate(-40px, -40px) scale(1.05);
+      }
+    }
+
+    .bubble-1 {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 8%;
+      animation-duration: 18s;
+      animation-delay: 0s;
+    }
+
+    .bubble-2 {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      right: 12%;
+      animation-duration: 22s;
+      animation-delay: 2s;
+    }
+
+    .bubble-3 {
+      width: 100px;
+      height: 100px;
+      bottom: 15%;
+      left: 15%;
+      animation-duration: 20s;
+      animation-delay: 4s;
+    }
+
+    .bubble-4 {
+      width: 60px;
+      height: 60px;
+      bottom: 25%;
+      right: 10%;
+      animation-duration: 16s;
+      animation-delay: 1s;
+    }
+
+    .bubble-5 {
+      width: 90px;
+      height: 90px;
+      top: 50%;
+      left: 5%;
+      animation-duration: 19s;
+      animation-delay: 3s;
+    }
+
+    .bubble-6 {
+      width: 70px;
+      height: 70px;
+      top: 60%;
+      right: 8%;
+      animation-duration: 21s;
+      animation-delay: 5s;
+    }
+
+    .bubble-7 {
+      width: 50px;
+      height: 50px;
+      top: 30%;
+      left: 50%;
+      animation-duration: 17s;
+      animation-delay: 2.5s;
+    }
+
+    .bubble-8 {
+      width: 110px;
+      height: 110px;
+      bottom: 10%;
+      right: 20%;
+      animation-duration: 23s;
+      animation-delay: 1.5s;
+    }
+
+    /* Subtle background movement */
+    @keyframes subtleFloat {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(12px, -16px) scale(1.03);
+      }
+      50% {
+        transform: translate(-8px, -22px) scale(0.97);
+      }
+      75% {
+        transform: translate(-13px, -11px) scale(1.02);
+      }
+    }
+
+    /* Section Tabs */
+    .section-tab-new {
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.4s ease;
+    }
+
+    .section-tab-new:hover {
+      color: var(--accent);
+    }
+
+    .section-tab-new.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .sections-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+    }
+
+    .content-section.active {
+      position: relative;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .content-section.slide-out-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .content-section.slide-out-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .content-section.slide-in-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .content-section.slide-in-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    /* Tabs wrapper with indicator */
+    .tabs-wrapper {
+      position: relative;
+    }
+
+    /* Active indicator positioned under button */
+    #active-tab-indicator {
+      z-index: 5;
+      opacity: 1;
+      position: absolute;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    /* GALLERY LIGHTBOX */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(42, 36, 32, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+    }
+
+    .lightbox-overlay.open {
+      display: flex;
+      animation: fadeIn 0.18s ease-out forwards;
+    }
+
+    .lightbox-panel {
+      position: relative;
+      width: auto;
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow:
+        0 40px 90px -30px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(184, 155, 114, 0.18);
+      background: rgba(246, 244, 241, 0.06);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      width: auto;
+      height: auto;
+      max-width: 92vw;
+      max-height: 86vh;
+      object-fit: contain;
+      display: block;
+      background: rgba(42, 36, 32, 0.35);
+      user-select: none;
+      -webkit-user-drag: none;
+      touch-action: pan-y;
+      transition: opacity 180ms ease, transform 220ms ease;
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+
+    /* Image switch animation states */
+    .lightbox-img.is-switching {
+      opacity: 0;
+    }
+
+    .lightbox-img.is-switching.dir-next {
+      transform: translateX(-24px) scale(0.985);
+    }
+
+    .lightbox-img.is-switching.dir-prev {
+      transform: translateX(24px) scale(0.985);
+    }
+
+    .lightbox-img.is-entering {
+      opacity: 0;
+    }
+
+    .lightbox-img.is-entering.dir-next {
+      transform: translateX(24px) scale(0.985);
+    }
+
+    .lightbox-img.is-entering.dir-prev {
+      transform: translateX(-24px) scale(0.985);
+    }
+
+    .lightbox-swipe {
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      touch-action: pan-y;
+    }
+
+    .lightbox-swipe:active {
+      cursor: grabbing;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 9999px;
+      display: grid;
+      place-items: center;
+      background: rgba(42, 36, 32, 0.55);
+      border: 1px solid rgba(184, 155, 114, 0.35);
+      color: #F6F4F1;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      z-index: 2;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.05);
+      background: rgba(42, 36, 32, 0.7);
+    }
+
+    .gallery-item {
+      cursor: zoom-in;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px -20px rgba(42, 36, 32, 0.35);
+    }
+
+    .gallery-item img {
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+  </style>
+
+  <style>
+    /* ADMIN (hidden) */
+    .admin-btn {
+      position: fixed;
+      left: 14px;
+      bottom: 14px;
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      background: rgba(42, 36, 32, 0.12);
+      border: 1px solid rgba(184, 155, 114, 0.22);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+      z-index: 10000;
+      opacity: 0.35;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .admin-btn:hover { opacity: 0.8; transform: scale(1.08); }
+
+    .admin-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(42, 36, 32, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+      padding: 20px;
+    }
+    .admin-overlay.open { display: flex; }
+
+    .admin-panel {
+      width: min(720px, 92vw);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 40px 90px -30px rgba(0,0,0,0.65);
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(246, 244, 241, 0.92);
+      color: #2A2420;
+    }
+
+    .admin-panel-header {
+      padding: 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(184,155,114,0.18), rgba(184,155,114,0.08));
+      border-bottom: 1px solid rgba(184, 155, 114, 0.18);
+    }
+
+    .admin-panel-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      font-size: 0.9rem;
+    }
+
+    .admin-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 1px solid rgba(184, 155, 114, 0.28);
+      background: rgba(42, 36, 32, 0.06);
+      cursor: pointer;
+    }
+
+    .admin-body { padding: 18px; }
+
+    .admin-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.18);
+      background: rgba(246, 244, 241, 0.65);
+      margin-bottom: 10px;
+    }
+
+    .admin-row-left { display: flex; align-items: center; gap: 10px; }
+
+    .admin-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.92rem;
+    }
+
+    .admin-actions { display: flex; gap: 8px; align-items: center; }
+
+    .admin-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(42, 36, 32, 0.04);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 160ms ease;
+    }
+    .admin-icon-btn:hover { transform: translateY(-1px); }
+
+    .admin-footer {
+      padding: 16px 18px;
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(184, 155, 114, 0.18);
+      background: rgba(246, 244, 241, 0.85);
+    }
+
+    .admin-btn-main {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.35);
+      background: linear-gradient(135deg, rgba(184,155,114,0.38), rgba(184,155,114,0.18));
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+    }
+
+    .admin-btn-ghost {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(42, 36, 32, 0.04);
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+    }
+
+    .admin-input {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(184, 155, 114, 0.25);
+      background: rgba(246, 244, 241, 0.8);
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .admin-help {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(42, 36, 32, 0.7);
+      line-height: 1.6;
+    }
+  </style>
+
+  <style>@view-transition { navigation: auto; }</style>
+  <!-- Removed Canva editor SDK (not available on GitHub Pages) -->
+</head>
+ <body class="font-body" style="background-color: var(--bg-main);">
+  <div class="app-wrapper w-full"><!-- HERO SECTION -->
+   <section id="hero-section" class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
+    <!-- Separated moving background graphics (lines + circles) -->
+    <div class="hero-pattern-layer hero-pattern-lines" aria-hidden="true"></div>
+    <div class="hero-pattern-layer hero-pattern-circles" aria-hidden="true"></div>
+
+    <!-- Moving circles in the hero background -->
+    <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+     <div class="hero-orb hero-orb-1"></div>
+     <div class="hero-orb hero-orb-2"></div>
+     <div class="hero-orb hero-orb-3"></div>
+     <div class="hero-orb hero-orb-4"></div>
+     <div class="hero-orb hero-orb-5"></div>
+     <div class="hero-orb hero-orb-6"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto"><!-- Actor Name -->
+     <h1 id="actor-name" class="font-display font-bold tracking-wide mb-6 animate-fade-in-up" style="color: var(--text-primary); font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 0.15em;">OFIR SHIMONI</h1><!-- Accent Line -->
+     <div class="flex justify-center mb-6">
+      <div class="accent-line animate-line"></div>
+     </div><!-- Title / Role -->
+     <p id="actor-title" class="font-display font-light tracking-widest text-lg md:text-xl mb-16 animate-fade-in-up delay-200" style="color: var(--text-secondary); letter-spacing: 0.3em;">ACTOR • PERFORMER</p><!-- Portrait Image -->
+     <div class="flex justify-center animate-fade-in-up delay-400">
+      <div class="portrait-frame rounded-2xl p-3 md:p-4">
+       <div class="rounded-xl overflow-hidden" style="max-width: 380px;"><img src="https://i.postimg.cc/XqW4LpW8/035A8808.jpg" alt="Ofir Shimoni - Actor &amp; Performer" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: auto; display: block; object-fit: cover;">
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- SHOWREEL SECTION -->
+   <section id="showreel-section" class="showreel-section py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto text-center"><!-- Section Title -->
+     <h2 id="showreel-title" class="font-display font-bold tracking-widest text-3xl md:text-4xl mb-4 animate-fade-in" style="color: #F6F4F1; letter-spacing: 0.2em;">DEMO • REEL</h2><!-- Accent Line -->
+     <div class="flex justify-center mb-12 md:mb-16">
+      <div class="accent-line"></div>
+     </div><!-- Video Embed Container -->
+     <div class="video-container rounded-xl overflow-hidden mx-auto relative" style="max-width: 900px;">
+      <div class="relative w-full" style="padding-top: 56.25%; background: linear-gradient(135deg, #3D352E 0%, #2F2823 50%, #3D352E 100%);">
+        <iframe
+          src="https://www.youtube.com/embed/sisTW0t2Rv0?si=PBpUSHRA9g8tR76Q"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          class="absolute inset-0 w-full h-full">
+        </iframe>
+      </div>
+     </div>
+
+     <!-- Subtle decorative element below video -->
+     <div class="mt-12 flex justify-center items-center gap-4 opacity-30">
+      <div class="w-8 h-px" style="background-color: var(--accent);"></div>
+      <svg width="12" height="12" viewbox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="2" fill="#B89B72" />
+      </svg>
+      <div class="w-8 h-px" style="background-color: var(--accent);"></div>
+     </div>
+    </div>
+   </section><!-- EXPERIENCE & CAREER SECTION -->
+   <section id="experience-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main); overflow: hidden;">
+    <!-- Moving orbs in Resume background (subtle) -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
+      <div class="resume-orb resume-orb-1"></div>
+      <div class="resume-orb resume-orb-2"></div>
+      <div class="resume-orb resume-orb-3"></div>
+      <div class="resume-orb resume-orb-4"></div>
+    </div><div class="max-w-4xl mx-auto relative z-10" style="isolation:isolate;"><!-- Navigation Tabs -->
+     <div class="tabs-wrapper flex justify-center mb-16">
+      <div class="inline-flex flex-wrap justify-center gap-4 relative"><button onclick="showSection('acting-education', this)" data-section="acting-education" class="section-tab-new active font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Acting Education </button> <button onclick="showSection('singing-education', this)" data-section="singing-education" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Singing Education </button> <button onclick="showSection('experience-studies', this)" data-section="experience-studies" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Experience Within Studies </button> <button onclick="showSection('teaching-experience', this)" data-section="teaching-experience" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Teaching Experience </button> <button onclick="showSection('films', this)" data-section="films" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Films </button> <button onclick="showSection('personal-details', this)" data-section="personal-details" class="section-tab-new font-display tracking-wider px-3 py-2 transition-all duration-300 relative"> Personal Details </button>
+      </div><!-- Active indicator line -->
+      <div id="active-tab-indicator"></div>
+     </div><!-- Sections Container -->
+     <div class="sections-container"><!-- Acting Education Section -->
+      <div id="acting-education" class="content-section active space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">ACTING EDUCATION</h2><!-- The Cameri Academy Ensemble -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">The Cameri Academy Ensemble</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2025</span> | <span class="font-medium" style="color: var(--text-primary);">Amit Reis</span></p>
+         </div>
+        </div>
+       </div><!-- Private Acting Lessons -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Private Acting Lessons</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2025</span> | <span class="font-medium" style="color: var(--text-primary);">Yoav Rozenberg</span></p>
+         </div>
+        </div>
+       </div><!-- Nissan Nativ: Camera Acting -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Nissan Nativ: Camera Acting</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2023</span> | <span class="font-medium" style="color: var(--text-primary);">Dor Zweigenboim</span></p>
+         </div>
+        </div>
+       </div><!-- Sc Produb: Dubbing -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Sc Produb: Dubbing</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2023</span> | <span class="font-medium" style="color: var(--text-primary);">Sharon Cohen</span></p>
+         </div>
+        </div>
+       </div><!-- Graduate of Theatre Major -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Graduate of Theatre Major</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2017–2020</span> | <span class="font-medium" style="color: var(--text-primary);">Irit Bashan</span></p>
+         </div>
+        </div>
+       </div><!-- Mediatheque Ensemble -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Mediatheque Ensemble</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2015–2019</span> | <span class="font-medium" style="color: var(--text-primary);">Yagil</span></p>
+         </div>
+        </div>
+       </div><!-- Mediatheque Acting Studio -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Mediatheque Acting Studio</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2012–2015</span> | <span class="font-medium" style="color: var(--text-primary);">Inbal Itskovitz</span></p>
+         </div>
+        </div>
+       </div><!-- Acting studio at Holon Theatre -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Acting Studio at Holon Theatre</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2010–2014</span> | <span class="font-medium" style="color: var(--text-primary);">Liad</span></p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Singing Education Section -->
+      <div id="singing-education" class="content-section space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">SINGING EDUCATION</h2><!-- Private Singing Lessons - Ruchale Agmon -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Private Singing Lessons</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2025</span> | <span class="font-medium" style="color: var(--text-primary);">Ruchale Agmon</span></p>
+         </div>
+        </div>
+       </div><!-- Private Singing Lessons - Tal Trebelsi -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Private Singing Lessons</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2024–2025</span> | <span class="font-medium" style="color: var(--text-primary);">Tal Trebelsi</span></p>
+         </div>
+        </div>
+       </div><!-- Private Opera Studies -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Private Opera Studies</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2022–2024</span> | <span class="font-medium" style="color: var(--text-primary);">Shira Tal</span></p>
+         </div>
+        </div>
+       </div><!-- Private Singing Lessons - Kylie Halperin -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Private Singing Lessons</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2020–2021</span> | <span class="font-medium" style="color: var(--text-primary);">Kylie Halperin</span></p>
+         </div>
+        </div>
+       </div><!-- Junior High & High School Choir -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Junior High &amp; High School Choir</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2015–2018</span> | <span class="font-medium" style="color: var(--text-primary);">Oshri Shaulov</span></p>
+         </div>
+        </div>
+       </div><!-- School Representative Choir -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Primary School Representative Choir</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2012–2014</span> | <span class="font-medium" style="color: var(--text-primary);">Oshri Shaulov</span></p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Experience Within Studies Section -->
+      <div id="experience-studies" class="content-section space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">EXPERIENCE WITHIN STUDIES</h2><!-- Cameri Academy -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Cameri Academy</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2026</span> | <span class="font-medium" style="color: var(--text-primary);">"Company"</span> | <span style="color: var(--text-secondary);">Musical</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Stephen Sondheim<br>
+            Adaptation and Direction: Amit Reis</p>
+         </div>
+        </div>
+       </div><!-- Theater Major -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Theater Major</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2020</span> | <span class="font-medium" style="color: var(--text-primary);">"Halvaia Horpit"</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Hanoch Levin<br>
+            Directed by: Irit Bashan</p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2019</span> | <span class="font-medium" style="color: var(--text-primary);">"Snow-White"</span> | <span style="color: var(--text-secondary);">Personal Adaptation</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Role: The Evil Queen<br>
+            Directed by: Ofir Shimoni</p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2019</span> | <span class="font-medium" style="color: var(--text-primary);">"Shakesbar"</span> | <span style="color: var(--text-secondary);">Original Production</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Directed by: Irit Bashan</p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2018</span> | <span class="font-medium" style="color: var(--text-primary);">"The Odd Couple"</span> | <span style="color: var(--text-secondary);">Female Version</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Role: Florence<br>
+            Written by: Neil Simon<br>
+            Directed by: Osnat Samuelson</p>
+         </div>
+        </div>
+       </div><!-- Mediatheque Ensemble -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Mediatheque Ensemble</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2017</span> | <span class="font-medium" style="color: var(--text-primary);">"The Good Doctor"</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Neil Simon</p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2016</span> | <span class="font-medium" style="color: var(--text-primary);">"The Color of the Pearl"</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Haim Idissis</p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2015</span> | <span class="font-medium" style="color: var(--text-primary);">"The Wave"</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Tzvia Huberman</p>
+         </div>
+        </div>
+       </div><!-- Holon Theater Studio -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Holon Theater Studio</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2014</span> | <span class="font-medium" style="color: var(--text-primary);">"The Adventures of Ferdinand Pedhazur – Abridged"</span></p>
+          <p class="font-body text-sm mt-1 pl-14" style="color: var(--text-secondary);">Written by: Ephraim Sidon</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Teaching Experience Section -->
+      <div id="teaching-experience" class="content-section space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">TEACHING EXPERIENCE</h2><!-- Summer Camp Bereisheet -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Summer Camp (Bereisheet)</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2025</span> | <span class="font-medium" style="color: var(--text-primary);">United States</span></p>
+          <ul class="font-body text-sm mt-3 pl-4 space-y-2 leading-relaxed" style="color: var(--text-secondary); list-style-type: disc; list-style-position: inside;">
+           <li>Head of Theater and Acting Track</li>
+           <li>Acting, Movement, and Voice Instructor</li>
+           <li>Responsible for Managing and Directing Camp Productions</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div><!-- Films Section -->
+      <div id="films" class="content-section space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">FILMS</h2><!-- Student Film 2024 -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Student Film</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">2024</span> | <span class="font-medium" style="color: var(--text-primary);">Role: Sahar (Lead)</span></p>
+          <p class="font-body text-sm mt-3 pl-4 italic leading-relaxed" style="color: var(--text-secondary); max-width: 600px;">The film tells the story of the hostages in captivity, giving us a glimpse into their world, emotions, dreams, and fears.</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Personal Details Section -->
+      <div id="personal-details" class="content-section space-y-12">
+       <h2 class="font-display font-semibold text-2xl mb-8 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.15em;">PERSONAL DETAILS &amp; ADDITIONAL SKILLS</h2><!-- Personal Details -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-6 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Personal Details</h3>
+        <div class="space-y-4">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">Date of Birth:</span> <span class="font-medium" style="color: var(--text-primary);">05/05/2002</span></p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-semibold" style="color: var(--accent);">Height:</span> <span class="font-medium" style="color: var(--text-primary);">1.76 m</span></p>
+         </div>
+        </div>
+       </div><!-- Languages -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-6 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Languages</h3>
+        <div class="space-y-3">
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-medium" style="color: var(--text-primary);">Hebrew</span> – <span style="color: var(--accent);">Native</span></p>
+         </div>
+         <div class="group">
+          <p class="font-body text-base leading-relaxed" style="color: var(--text-secondary);"><span class="font-medium" style="color: var(--text-primary);">English</span> – <span style="color: var(--accent);">Native</span></p>
+         </div>
+        </div>
+       </div><!-- Additional Skills -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-6 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Additional Skills</h3>
+        <div class="flex flex-wrap gap-3"><span class="font-body text-sm px-4 py-2 rounded-full" style="background-color: rgba(184, 155, 114, 0.15); color: var(--text-primary);">Singing</span> <span class="font-body text-sm px-4 py-2 rounded-full" style="background-color: rgba(184, 155, 114, 0.15); color: var(--text-primary);">Opera Singing</span> <span class="font-body text-sm px-4 py-2 rounded-full" style="background-color: rgba(184, 155, 114, 0.15); color: var(--text-primary);">Salsa Dancing</span> <span class="font-body text-sm px-4 py-2 rounded-full" style="background-color: rgba(184, 155, 114, 0.15); color: var(--text-primary);">Accents</span>
+        </div>
+       </div><!-- Contact Information -->
+       <div class="border-l-2 pl-8 pb-8" style="border-color: var(--accent);">
+        <h3 class="font-display font-semibold text-xl mb-6 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.1em;">Get In Touch</h3>
+        <div class="space-y-4">
+         <div class="group flex items-center gap-3">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" style="flex-shrink: 0;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#B89B72" stroke-width="2" /> <circle cx="12" cy="12" r="4" stroke="#B89B72" stroke-width="2" /> <circle cx="18.5" cy="5.5" r="1.5" fill="#B89B72" />
+          </svg><a href="https://www.instagram.com/Ofirshi_" target="_blank" rel="noopener noreferrer" class="font-body text-base leading-relaxed transition-colors duration-300" style="color: var(--text-secondary);"> <span class="font-medium" style="color: var(--text-primary);">@Ofirshi_</span> </a>
+         </div>
+         <div class="group flex items-center gap-3">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" style="flex-shrink: 0;"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#B89B72" stroke-width="2" /> <path d="M3 7l9 6 9-6" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg><a href="mailto:Ofirsh0505@gmail.com" class="font-body text-base leading-relaxed transition-colors duration-300" style="color: var(--text-secondary);"> <span class="font-medium" style="color: var(--text-primary);">Ofirsh0505@gmail.com</span> </a>
+         </div>
+         <div class="group flex items-center gap-3">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg><a href="tel:+972526513355" class="font-body text-base leading-relaxed transition-colors duration-300" style="color: var(--text-secondary);"> <span class="font-medium" style="color: var(--text-primary);">+972 52 651 3355</span> </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- End sections-container -->
+    </div><!-- End sections-container -->
+   </section>
+  </div> <!-- GALLERY SECTION -->
+  <section id="gallery-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">GALLERY</h2><!-- Accent Line -->
+    <div class="flex justify-center mb-16">
+     <div class="accent-line"></div>
+    </div><!-- Gallery Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><!-- Photo Placeholder 1 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/ydC8pVCj/035A8756.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div><!-- Photo Placeholder 2 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/ydC8pVCT/035A8807.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div><!-- Photo Placeholder 3 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/MHKxgHPd/035A8774.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div><!-- Photo Placeholder 4 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/hPc7P1wd/035A8769.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div><!-- Photo Placeholder 5 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox><img src="https://i.postimg.cc/pdFdBm4Q/035A8673.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div><!-- Photo Placeholder 6 -->
+     <div class="portrait-frame rounded-xl overflow-hidden aspect-[3/4] gallery-item" data-lightbox>
+      <img src="https://i.postimg.cc/hPsMSjCP/035A8712.jpg" alt="Ofir Shimoni Gallery Photo" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- LIGHTBOX (Gallery popup) -->
+  <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+    <div class="lightbox-panel">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close image">✕</button>
+
+      <!-- Swipe container -->
+      <div id="lightbox-swipe" class="lightbox-swipe" aria-label="Swipe gallery">
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded gallery image" />
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS SECTION -->
+  <section id="links-section" class="showreel-section py-20 md:py-28 px-6" style="--text-primary:#F6F4F1; --text-secondary:#C9BBAA;"><h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 text-center tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LINKS</h2><!-- Accent Line -->
+    <div class="flex justify-center mb-16">
+     <div class="accent-line"></div>
+    </div>
+    <div class="space-y-6"><!-- Link Card 1 -->
+     <a href="https://drive.google.com/file/d/1HUZD7Hwq7zLc__SBXIhU0Ulbt4o89o8y/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block group">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
+       <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+         </div>
+         <div>
+          <div class="flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 2h8l4 4v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="#B89B72" stroke-width="2"/>
+              <path d="M14 2v4h4" stroke="#B89B72" stroke-width="2"/>
+              <text x="7" y="17" font-size="6" fill="#B89B72" font-family="Montserrat, sans-serif">PDF</text>
+            </svg>
+            <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Ofir Shimoni | Resume Hebrew PDF</h3>
+          </div>
+         </div>
+        </div>
+        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div>
+      </div></a> <!-- Link Card 2 -->
+      <a href="https://drive.google.com/file/d/1s5rXh5C3WIaoiJcoVt62C3S9eEnmGZGN/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block group">
+      <div class="rounded-xl p-6 transition-all duration-300 hover:shadow-xl" style="background: var(--card-bg);
+              border: 1px solid var(--card-border);">
+       <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, rgba(184, 155, 114, 0.3), rgba(184, 155, 114, 0.1));">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+         </div>
+         <div class="flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 2h8l4 4v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="#B89B72" stroke-width="2"/>
+            <path d="M14 2v4h4" stroke="#B89B72" stroke-width="2"/>
+            <text x="7" y="17" font-size="6" fill="#B89B72" font-family="Montserrat, sans-serif">PDF</text>
+          </svg>
+          <h3 class="font-display font-semibold text-lg mb-1 group-hover:text-opacity-80 transition-all" style="color: var(--text-primary);">Ofir Shimoni | Resume English PDF</h3>
+         </div>
+        </div>
+        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M7 3l7 7-7 7" stroke="#B89B72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div>
+      </div></a>  
+    </div>
+   </div>
+  </section><!-- CONTACT SECTION -->
+  <section id="contact-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
+   <div class="max-w-4xl mx-auto text-center">
+    <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4 tracking-wide" style="color: var(--text-primary); letter-spacing: 0.2em;">LET'S CONNECT</h2>
+    <!-- Accent Line -->
+    <div class="flex justify-center mb-8">
+     <div class="accent-line"></div>
+    </div>
+
+    <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p>
+
+    <!-- Contact Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+
+      <!-- Email Button -->
+      <a href="mailto:Ofirsh0505@gmail.com" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="#F6F4F1" stroke-width="2" />
+          <path d="M3 7l9 6 9-6" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="text-left">
+          <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">EMAIL</div>
+          <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">Ofirsh0505@gmail.com</div>
+        </div>
+      </a>
+
+      <!-- Phone Button -->
+      <a href="tel:+972526513355" class="group flex items-center gap-4 px-8 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl w-full sm:w-auto" style="background: linear-gradient(135deg, var(--accent) 0%, #9d8260 100%); border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0 group-hover:scale-110 transition-transform">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F6F4F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="text-left">
+          <div class="font-display font-semibold text-sm tracking-wider" style="color: #F6F4F1;">PHONE</div>
+          <div class="font-body text-xs" style="color: rgba(246, 244, 241, 0.9);">+972 52 651 3355</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Instagram Link -->
+    <div class="flex justify-center">
+      <a href="https://www.instagram.com/Ofirshi_" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300" style="border: 2px solid var(--accent);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="group-hover:scale-110 transition-transform">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2" style="color: var(--accent);" />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" style="color: var(--accent);" />
+          <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor" style="color: var(--accent);" />
+        </svg>
+        <span class="font-display font-semibold tracking-wider" style="color: var(--text-primary);">@Ofirshi_</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="group-hover:translate-x-1 transition-transform">
+          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);" />
+        </svg>
+      </a>
+    </div>
+
+   </div>
+  </section>
+
+  <!-- Footer spacer -->
+  <div class="py-8" style="background-color: var(--bg-main);"></div>
+
+<!-- Footer -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="footer-inner">
+    <div class="footer-mark" aria-hidden="true">
+      <img
+        src="https://i.postimg.cc/rp47ZR45/Picsart-26-01-22-11-39-49-272.jpg"
+        alt="SHIMONI OFIR CREATIVE mark"
+      />
+    </div>
+
+    <div class="footer-text">
+      <div class="footer-signature">
+        Designed &amp; developed by <strong>SHIMONI OFIR CREATIVE</strong>
+      </div>
+      <div class="footer-meta">
+        © <span id="footer-year"></span> Ofir Shimoni
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-main);
+    padding: 56px 24px 64px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Centered, stacked footer: logo on top, text under it */
+  .footer-inner {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  /* Keep the exact size you have now */
+  .footer-mark {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  /* No frame: just the image */
+  .footer-mark img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 0;
+    display: block;
+  }
+
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-signature {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--text-primary);
+  }
+
+  .footer-meta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+</style>
+
+<script>
+  (function () {
+    const y = document.getElementById('footer-year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+
+  <!-- Hidden Admin Button (double tap/click) -->
+  <button id="admin-btn" class="admin-btn" aria-label="Admin" title=""></button>
+
+  <!-- Password Modal -->
+  <div id="admin-pass-overlay" class="admin-overlay" aria-hidden="true">
+    <div class="admin-panel">
+      <div class="admin-panel-header">
+        <div class="admin-panel-title">ADMIN ACCESS</div>
+        <button id="admin-pass-close" class="admin-close" aria-label="Close">✕</button>
+      </div>
+      <div class="admin-body">
+        <p class="admin-help" style="margin-bottom: 12px;">Enter password to edit which sections are visible + their order (only on this device/browser).</p>
+        <input id="admin-pass-input" class="admin-input" type="password" inputmode="numeric" placeholder="Password" />
+        <p id="admin-pass-error" class="admin-help" style="margin-top: 10px; color: rgba(150, 30, 30, 0.9); display: none;">Wrong password.</p>
+      </div>
+      <div class="admin-footer">
+        <button id="admin-pass-cancel" class="admin-btn-ghost">CANCEL</button>
+        <button id="admin-pass-go" class="admin-btn-main">GO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Controls Modal -->
+  <div id="admin-overlay" class="admin-overlay" aria-hidden="true">
+    <div class="admin-panel">
+      <div class="admin-panel-header">
+        <div class="admin-panel-title">SECTIONS VISIBILITY + ORDER</div>
+        <button id="admin-close" class="admin-close" aria-label="Close">✕</button>
+      </div>
+      <div class="admin-body">
+        <div id="admin-list"></div>
+        <p class="admin-help" style="margin-top: 10px;">Tip: Use ▲ ▼ to change order. Toggle to hide/show. Changes save automatically.</p>
+        <p class="admin-help" style="margin-top: 6px;">Note: this is not real security (static website). It’s just a hidden control panel.</p>
+      </div>
+      <div class="admin-footer">
+        <button id="admin-reset" class="admin-btn-ghost">RESET</button>
+        <button id="admin-apply" class="admin-btn-main">APPLY</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      actor_name: 'OFIR SHIMONI',
+      actor_title: 'ACTOR • PERFORMER',
+      showreel_title: 'DEMO • REEL',
+      background_color: '#F6F4F1',
+      text_color: '#2A2420',
+      secondary_color: '#6A5F57',
+      accent_color: '#B89B72',
+      showreel_bg: '#3D352E'
+    };
+
+    async function onConfigChange(config) {
+      // Update actor name
+      const nameEl = document.getElementById('actor-name');
+      if (nameEl) {
+        nameEl.textContent = config.actor_name || defaultConfig.actor_name;
+        nameEl.style.color = config.text_color || defaultConfig.text_color;
+      }
+
+      // Update actor title
+      const titleEl = document.getElementById('actor-title');
+      if (titleEl) {
+        titleEl.textContent = config.actor_title || defaultConfig.actor_title;
+        titleEl.style.color = config.secondary_color || defaultConfig.secondary_color;
+      }
+
+      // Update showreel title
+      const showreelEl = document.getElementById('showreel-title');
+      if (showreelEl) {
+        showreelEl.textContent = config.showreel_title || defaultConfig.showreel_title;
+      }
+
+      // Update colors
+      document.documentElement.style.setProperty('--bg-main', config.background_color || defaultConfig.background_color);
+      document.documentElement.style.setProperty('--text-primary', config.text_color || defaultConfig.text_color);
+      document.documentElement.style.setProperty('--text-secondary', config.secondary_color || defaultConfig.secondary_color);
+      document.documentElement.style.setProperty('--accent', config.accent_color || defaultConfig.accent_color);
+      document.documentElement.style.setProperty('--showreel-bg', config.showreel_bg || defaultConfig.showreel_bg);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.showreel_bg || defaultConfig.showreel_bg,
+            set: (value) => {
+              config.showreel_bg = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ showreel_bg: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || 'Montserrat',
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || 16,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['actor_name', config.actor_name || defaultConfig.actor_name],
+        ['actor_title', config.actor_title || defaultConfig.actor_title],
+        ['showreel_title', config.showreel_title || defaultConfig.showreel_title]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Section switching functionality
+    let currentSection = 'acting-education';
+    const sectionOrder = ['acting-education', 'singing-education', 'experience-studies', 'teaching-experience', 'films', 'personal-details'];
+
+    function updateActiveIndicator(button) {
+      const indicator = document.getElementById('active-tab-indicator');
+      const wrapper = document.querySelector('.tabs-wrapper');
+      
+      if (!indicator || !button || !wrapper) return;
+      
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+      
+      const left = buttonRect.left - wrapperRect.left;
+      const top = buttonRect.bottom - wrapperRect.top;
+      
+      indicator.style.left = `${left}px`;
+      indicator.style.width = `${buttonRect.width}px`;
+      indicator.style.top = `${top}px`;
+    }
+
+    function showSection(sectionId, buttonEl) {
+      if (currentSection === sectionId) return;
+
+      // Determine direction
+      const currentIndex = sectionOrder.indexOf(currentSection);
+      const newIndex = sectionOrder.indexOf(sectionId);
+      const direction = newIndex > currentIndex ? 'right' : 'left';
+
+      // Get current and new sections
+      const currentSectionEl = document.getElementById(currentSection);
+      const newSectionEl = document.getElementById(sectionId);
+
+      if (!currentSectionEl || !newSectionEl) return;
+
+      // Animate out current section
+      currentSectionEl.classList.remove('active');
+      if (direction === 'right') {
+        currentSectionEl.classList.add('slide-out-left');
+      } else {
+        currentSectionEl.classList.add('slide-out-right');
+      }
+
+      // Prepare new section for animation
+      newSectionEl.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right');
+      if (direction === 'right') {
+        newSectionEl.style.transform = 'translateX(100%)';
+      } else {
+        newSectionEl.style.transform = 'translateX(-100%)';
+      }
+
+      // Trigger animation
+      setTimeout(() => {
+        newSectionEl.classList.add('active');
+        newSectionEl.style.transform = 'translateX(0)';
+      }, 50);
+
+      // Clean up after animation
+      setTimeout(() => {
+        currentSectionEl.classList.remove('slide-out-left', 'slide-out-right');
+      }, 650);
+
+      // Update current section
+      currentSection = sectionId;
+
+      // Update tab states
+      const allTabs = document.querySelectorAll('.section-tab-new');
+      allTabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      buttonEl.classList.add('active');
+
+      // Update active indicator position
+      updateActiveIndicator(buttonEl);
+    }
+
+    function initActiveIndicator() {
+      const activeTab = document.querySelector('.section-tab-new.active');
+      if (!activeTab) return;
+
+      // Run a few times to catch late layout/font/tailwind injection
+      requestAnimationFrame(() => updateActiveIndicator(activeTab));
+      setTimeout(() => updateActiveIndicator(activeTab), 0);
+      setTimeout(() => updateActiveIndicator(activeTab), 250);
+      setTimeout(() => updateActiveIndicator(activeTab), 650);
+    }
+
+    // Initialize active indicator early + after full load
+    document.addEventListener('DOMContentLoaded', initActiveIndicator);
+    window.addEventListener('load', initActiveIndicator);
+
+    // Update indicator on window resize
+    window.addEventListener('resize', () => {
+      const activeTab = document.querySelector('.section-tab-new.active');
+      if (activeTab) {
+        updateActiveIndicator(activeTab);
+      }
+    });
+
+    // Gallery Lightbox (with swipe left/right)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxSwipe = document.getElementById('lightbox-swipe');
+
+    const galleryImgs = Array.from(document.querySelectorAll('[data-lightbox] img'));
+    let currentLightboxIndex = 0;
+
+    function openLightboxByIndex(index, dir = 0) {
+      if (!lightbox || !lightboxImg) return;
+      if (!galleryImgs.length) return;
+
+      const safeIndex = (index + galleryImgs.length) % galleryImgs.length;
+      const wasOpen = lightbox.classList.contains('open');
+
+      // If lightbox is already open and direction wasn't provided, infer it
+      if (wasOpen && dir === 0 && safeIndex !== currentLightboxIndex) {
+        dir = safeIndex > currentLightboxIndex ? 1 : -1;
+      }
+
+      currentLightboxIndex = safeIndex;
+      const img = galleryImgs[safeIndex];
+      const newSrc = img.src;
+      const newAlt = img.alt || 'Expanded gallery image';
+
+      // Open (no switch animation needed)
+      if (!wasOpen) {
+        lightboxImg.src = newSrc;
+        lightboxImg.alt = newAlt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+
+      // Switching animation when already open
+      const dirClass = dir >= 0 ? 'dir-next' : 'dir-prev';
+
+      // Exit
+      lightboxImg.classList.remove('is-entering', 'dir-next', 'dir-prev');
+      lightboxImg.classList.add('is-switching', dirClass);
+
+      // After fade/slide out, swap image and slide in
+      setTimeout(() => {
+        lightboxImg.src = newSrc;
+        lightboxImg.alt = newAlt;
+
+        lightboxImg.classList.remove('is-switching', 'dir-next', 'dir-prev');
+        lightboxImg.classList.add('is-entering', dirClass);
+
+        // Trigger enter transition to default state
+        requestAnimationFrame(() => {
+          lightboxImg.classList.remove('is-entering', 'dir-next', 'dir-prev');
+        });
+      }, 170);
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lightboxImg) lightboxImg.src = '';
+    }
+
+    function nextLightbox() {
+      openLightboxByIndex(currentLightboxIndex + 1, 1);
+    }
+
+    function prevLightbox() {
+      openLightboxByIndex(currentLightboxIndex - 1, -1);
+    }
+
+    // Open from gallery click
+    galleryImgs.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        openLightboxByIndex(index);
+      });
+    });
+
+    // Close button
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    // Click outside closes
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox || !lightbox.classList.contains('open')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+    });
+
+    // Swipe support (touch + mouse drag)
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    function pointerDown(x) {
+      startX = x;
+      currentX = x;
+      isDragging = true;
+    }
+
+    function pointerMove(x) {
+      if (!isDragging) return;
+      currentX = x;
+    }
+
+    function pointerUp() {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const deltaX = currentX - startX;
+      const threshold = 60; // swipe sensitivity
+
+      if (deltaX <= -threshold) {
+        nextLightbox();
+      } else if (deltaX >= threshold) {
+        prevLightbox();
+      }
+    }
+
+    if (lightboxSwipe) {
+      // Touch
+      lightboxSwipe.addEventListener('touchstart', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerDown(e.touches[0].clientX);
+      }, { passive: true });
+
+      lightboxSwipe.addEventListener('touchmove', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerMove(e.touches[0].clientX);
+      }, { passive: true });
+
+      lightboxSwipe.addEventListener('touchend', () => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerUp();
+      });
+
+      // Mouse drag
+      lightboxSwipe.addEventListener('mousedown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerDown(e.clientX);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerMove(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!lightbox.classList.contains('open')) return;
+        pointerUp();
+      });
+    }
+
+    /* =========================
+       ADMIN: Hide/Show + Reorder Sections (localStorage)
+       ========================= */
+    const ADMIN_PASSWORD = '3557';
+    const STORAGE_KEY = 'ofir_site_admin_state_v1';
+
+    const SECTION_DEFS = [
+      { id: 'hero-section', label: 'Hero', baseTheme: 'light' },
+      { id: 'showreel-section', label: 'Demo Reel', baseTheme: 'dark' },
+      { id: 'experience-section', label: 'Resume', baseTheme: 'light' },
+      { id: 'gallery-section', label: 'Gallery', baseTheme: 'light' },
+      { id: 'links-section', label: 'Links', baseTheme: 'dark' },
+      { id: 'contact-section', label: 'Contact', baseTheme: 'light' }
+    ];
+
+    function getDefaultAdminState() {
+      return {
+        order: SECTION_DEFS.map(s => s.id),
+        hidden: {}
+      };
+    }
+
+    function loadAdminState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return getDefaultAdminState();
+        const parsed = JSON.parse(raw);
+        // basic validation
+        if (!parsed || !Array.isArray(parsed.order) || typeof parsed.hidden !== 'object') {
+          return getDefaultAdminState();
+        }
+        // ensure all section ids exist
+        const allIds = new Set(SECTION_DEFS.map(s => s.id));
+        const cleanedOrder = parsed.order.filter(id => allIds.has(id));
+        SECTION_DEFS.forEach(s => { if (!cleanedOrder.includes(s.id)) cleanedOrder.push(s.id); });
+        return { order: cleanedOrder, hidden: parsed.hidden || {} };
+      } catch (e) {
+        return getDefaultAdminState();
+      }
+    }
+
+    function saveAdminState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function applyThemeToSection(sectionEl, theme) {
+      if (!sectionEl) return;
+
+      if (theme === 'dark') {
+        sectionEl.style.backgroundImage = 'linear-gradient(180deg, #3D352E 0%, #2F2823 100%)';
+        sectionEl.style.backgroundColor = '#3D352E';
+        sectionEl.style.setProperty('--text-primary', '#F6F4F1');
+        sectionEl.style.setProperty('--text-secondary', '#A89581');
+        sectionEl.style.setProperty('--bg-main', '#3D352E');
+      } else {
+        sectionEl.style.backgroundImage = 'none';
+        sectionEl.style.backgroundColor = '#F6F4F1';
+        sectionEl.style.setProperty('--text-primary', '#2A2420');
+        sectionEl.style.setProperty('--text-secondary', '#6A5F57');
+        sectionEl.style.setProperty('--bg-main', '#F6F4F1');
+      }
+    }
+
+    function applyAdminState(state) {
+      const sections = SECTION_DEFS.map(s => document.getElementById(s.id)).filter(Boolean);
+      if (!sections.length) return;
+
+      // 1) Reorder in DOM (keep them right under .app-wrapper if possible, else under body)
+      const anchor = document.querySelector('.app-wrapper') || document.body;
+
+      // Create a marker so we insert in a stable place
+      let marker = document.getElementById('sections-marker');
+      if (!marker) {
+        marker = document.createElement('div');
+        marker.id = 'sections-marker';
+        marker.style.display = 'none';
+        // put marker at the end of app-wrapper so inserted sections go before lightbox/footers
+        anchor.appendChild(marker);
+      }
+
+      state.order.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          // insert before marker
+          anchor.insertBefore(el, marker);
+        }
+      });
+
+      // 2) Hide / show
+      SECTION_DEFS.forEach((s) => {
+        const el = document.getElementById(s.id);
+        if (!el) return;
+        const isHidden = !!state.hidden[s.id];
+        el.style.display = isHidden ? 'none' : '';
+      });
+
+      // 3) Theme application (NO inheritance)
+      SECTION_DEFS.forEach((def) => {
+        const el = document.getElementById(def.id);
+        if (!el) return;
+        applyThemeToSection(el, def.baseTheme);
+      });
+
+      // 4) Page background follows first visible section base theme
+      const firstVisibleId = state.order.find(id => !state.hidden[id]);
+      if (firstVisibleId) {
+        const def = SECTION_DEFS.find(d => d.id === firstVisibleId);
+        const theme = def?.baseTheme || 'light';
+        document.body.style.backgroundColor = theme === 'dark' ? '#3D352E' : '#F6F4F1';
+      }
+
+    }
+
+    // --- Admin UI ---
+    const adminBtn = document.getElementById('admin-btn');
+    const passOverlay = document.getElementById('admin-pass-overlay');
+    const passClose = document.getElementById('admin-pass-close');
+    const passCancel = document.getElementById('admin-pass-cancel');
+    const passGo = document.getElementById('admin-pass-go');
+    const passInput = document.getElementById('admin-pass-input');
+    const passError = document.getElementById('admin-pass-error');
+
+    const adminOverlay = document.getElementById('admin-overlay');
+    const adminClose = document.getElementById('admin-close');
+    const adminApply = document.getElementById('admin-apply');
+    const adminReset = document.getElementById('admin-reset');
+    const adminList = document.getElementById('admin-list');
+
+    let adminState = loadAdminState();
+
+    function openOverlay(overlayEl) {
+      if (!overlayEl) return;
+      overlayEl.classList.add('open');
+      overlayEl.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOverlay(overlayEl) {
+      if (!overlayEl) return;
+      overlayEl.classList.remove('open');
+      overlayEl.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function renderAdminList() {
+      if (!adminList) return;
+      adminList.innerHTML = '';
+
+      adminState.order.forEach((id, idx) => {
+        const def = SECTION_DEFS.find(s => s.id === id);
+        if (!def) return;
+
+        const row = document.createElement('div');
+        row.className = 'admin-row';
+
+        const left = document.createElement('div');
+        left.className = 'admin-row-left';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = !adminState.hidden[id];
+        checkbox.style.width = '18px';
+        checkbox.style.height = '18px';
+        checkbox.addEventListener('change', () => {
+          adminState.hidden[id] = !checkbox.checked;
+        });
+
+        const label = document.createElement('div');
+        label.className = 'admin-label';
+        label.textContent = def.label;
+
+        left.appendChild(checkbox);
+        left.appendChild(label);
+
+        const actions = document.createElement('div');
+        actions.className = 'admin-actions';
+
+        const up = document.createElement('button');
+        up.className = 'admin-icon-btn';
+        up.innerHTML = '▲';
+        up.disabled = idx === 0;
+        up.style.opacity = up.disabled ? '0.35' : '1';
+        up.addEventListener('click', () => {
+          if (idx === 0) return;
+          const arr = adminState.order;
+          [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]];
+          renderAdminList();
+        });
+
+        const down = document.createElement('button');
+        down.className = 'admin-icon-btn';
+        down.innerHTML = '▼';
+        down.disabled = idx === adminState.order.length - 1;
+        down.style.opacity = down.disabled ? '0.35' : '1';
+        down.addEventListener('click', () => {
+          if (idx === adminState.order.length - 1) return;
+          const arr = adminState.order;
+          [arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]];
+          renderAdminList();
+        });
+
+        actions.appendChild(up);
+        actions.appendChild(down);
+
+        row.appendChild(left);
+        row.appendChild(actions);
+        adminList.appendChild(row);
+      });
+    }
+
+    function openPassword() {
+      if (passError) passError.style.display = 'none';
+      if (passInput) passInput.value = '';
+      openOverlay(passOverlay);
+      setTimeout(() => { if (passInput) passInput.focus(); }, 50);
+    }
+
+    function openAdminPanel() {
+      renderAdminList();
+      openOverlay(adminOverlay);
+    }
+
+    function closeAllAdmin() {
+      closeOverlay(passOverlay);
+      closeOverlay(adminOverlay);
+    }
+
+    // Double tap/click detection
+    let lastAdminTap = 0;
+    function handleAdminTap() {
+      const now = Date.now();
+      if (now - lastAdminTap < 420) {
+        openPassword();
+        lastAdminTap = 0;
+      } else {
+        lastAdminTap = now;
+      }
+    }
+
+    if (adminBtn) {
+      adminBtn.addEventListener('click', handleAdminTap);
+      adminBtn.addEventListener('touchend', (e) => {
+        // prevent double-trigger on some mobile browsers
+        e.preventDefault();
+        handleAdminTap();
+      }, { passive: false });
+    }
+
+    // Password modal controls
+    if (passClose) passClose.addEventListener('click', () => closeOverlay(passOverlay));
+    if (passCancel) passCancel.addEventListener('click', () => closeOverlay(passOverlay));
+
+    function submitPassword() {
+      const value = (passInput?.value || '').trim();
+      if (value === ADMIN_PASSWORD) {
+        closeOverlay(passOverlay);
+        openAdminPanel();
+      } else {
+        if (passError) passError.style.display = 'block';
+      }
+    }
+
+    if (passGo) passGo.addEventListener('click', submitPassword);
+    if (passInput) {
+      passInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') submitPassword();
+        if (e.key === 'Escape') closeOverlay(passOverlay);
+      });
+    }
+
+    // Admin panel controls
+    if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
+
+    if (adminApply) {
+      adminApply.addEventListener('click', () => {
+        saveAdminState(adminState);
+        applyAdminState(adminState);
+        closeOverlay(adminOverlay);
+      });
+    }
+
+    if (adminReset) {
+      adminReset.addEventListener('click', () => {
+        adminState = getDefaultAdminState();
+        saveAdminState(adminState);
+        applyAdminState(adminState);
+        renderAdminList();
+      });
+    }
+
+    // Close overlays on background click
+    [passOverlay, adminOverlay].forEach((ov) => {
+      if (!ov) return;
+      ov.addEventListener('click', (e) => {
+        if (e.target === ov) closeOverlay(ov);
+      });
+    });
+
+    // --- Basic self-tests (runs in console; does not affect UI) ---
+    function runSelfTests() {
+      try {
+        if (typeof applyAdminState !== 'function') throw new Error('applyAdminState is not a function');
+        if (!Array.isArray(adminState?.order)) throw new Error('adminState.order must be an array');
+        const ids = new Set(SECTION_DEFS.map(s => s.id));
+        adminState.order.forEach((id) => {
+          if (!ids.has(id)) console.warn('[SelfTest] Unknown section id in order:', id);
+        });
+        // Option 2 theme rule: last section in ORDER drives theme progression even if hidden
+        const lastId = adminState.order[adminState.order.length - 1];
+        const lastDef = SECTION_DEFS.find(d => d.id === lastId);
+        if (!lastDef) console.warn('[SelfTest] Last section definition not found for:', lastId);
+        console.log('[SelfTest] OK');
+      } catch (err) {
+        console.error('[SelfTest] FAILED:', err);
+      }
+    }
+
+    // Apply saved state on load
+    window.addEventListener('load', () => {
+      adminState = loadAdminState();
+      applyAdminState(adminState);
+      runSelfTests();
+    });
+
+  </script>
+ </body>
+</html>
+
