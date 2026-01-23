@@ -1320,9 +1320,10 @@
     </div>
 
     <div class="footer-text">
-      <div class="footer-signature">
-        Designed &amp; developed by <strong>SHIMONI OFIR CREATIVE</strong>
-      </div>
+<div class="footer-signature">
+  <div class="footer-byline">Designed &amp; developed by:</div>
+  <div class="footer-brand">SHIMONI OFIR CREATIVE</div>
+</div>
       <div class="footer-meta">
         © <span id="footer-year"></span> Ofir Shimoni
       </div>
@@ -1374,11 +1375,27 @@
   }
 
   .footer-signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-byline {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.footer-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
     color: var(--text-primary);
-  }
+}
 
   .footer-meta {
     font-family: 'Montserrat', sans-serif;
