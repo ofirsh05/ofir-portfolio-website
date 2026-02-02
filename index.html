@@ -1,3 +1,9 @@
+<!-- Paste your full single-file HTML below (replace everything in this canvas with your full file).
+     After you paste it, tell me “done” and I’ll insert:
+     1) the NOW/NEXT ticker section between resume and gallery
+     2) the SECTION_DEFS entry in the right spot
+     3) the admin tickerText field + localStorage wiring
+-->
 <!doctype html>
 <html lang="en">
  <head>
@@ -822,7 +828,20 @@
     }
   </style>
 
-  <style>@view-transition { navigation: auto; }</style>
+  <!-- Updates | TICKER STYLES -->
+  <style>
+    #updates-ticker-section { position: relative; overflow: hidden; }
+    .ticker-card { border-radius: 0.75rem; border: 1px solid var(--card-border); background: var(--card-bg); box-shadow: 0 20px 45px -30px rgba(0,0,0,0.35); }
+    .ticker-label { font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-primary); white-space: nowrap; }
+    .ticker-viewport { overflow: hidden; width: 100%; }
+    .ticker-track { display: inline-flex; white-space: nowrap; animation: tickerMarquee 22s linear infinite; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Montserrat', sans-serif; color: var(--text-secondary); }
+    .ticker-sep { color: var(--accent); padding: 0 0.9rem; }
+    @keyframes tickerMarquee { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+    @media (prefers-reduced-motion: reduce) { .ticker-track { animation:none; transform:none; } }
+  </style>
+
+  <style>@view-transition { navigation: auto; } { navigation: auto; }</style>
   <!-- Removed Canva editor SDK (not available on GitHub Pages) -->
 </head>
  <body class="font-body" style="background-color: var(--bg-main);">
@@ -1158,6 +1177,24 @@
      </div><!-- End sections-container -->
     </div><!-- End sections-container -->
    </section>
+
+  <!-- NOW / NEXT TICKER SECTION -->
+  <section id="updates-ticker-section" class="py-14 md:py-16 px-6" style="background-color: var(--bg-main);">
+    <div class="max-w-6xl mx-auto">
+      <div class="ticker-card px-5 md:px-6 py-4 md:py-5">
+        <div class="flex items-center gap-6 text-sm md:text-base" aria-label="Now and next updates ticker">
+          <div class="ticker-label">Updates |</div>
+          <div class="ticker-viewport">
+            <div id="ticker-track" class="ticker-track">
+              <div class="ticker-item"><span id="ticker-text-a"></span><span class="ticker-sep">•</span></div>
+              <div class="ticker-item"><span id="ticker-text-b"></span><span class="ticker-sep">•</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </div> <!-- GALLERY SECTION -->
   <section id="gallery-section" class="py-20 md:py-28 px-6 relative" style="background-color: var(--bg-main);">
    <div class="max-w-6xl mx-auto">
@@ -1844,6 +1881,7 @@
       { id: 'hero-section', label: 'Hero', baseTheme: 'light' },
       { id: 'showreel-section', label: 'Demo Reel', baseTheme: 'dark' },
       { id: 'experience-section', label: 'Resume', baseTheme: 'light' },
+      { id: 'updates-ticker-section', label: 'Now/Next Ticker', baseTheme: 'light' },
       { id: 'gallery-section', label: 'Gallery', baseTheme: 'light' },
       { id: 'links-section', label: 'Links', baseTheme: 'dark' },
       { id: 'contact-section', label: 'Contact', baseTheme: 'light' }
@@ -1852,7 +1890,8 @@
     function getDefaultAdminState() {
       return {
         order: SECTION_DEFS.map(s => s.id),
-        hidden: {}
+        hidden: {},
+        tickerText: 'Auditioning + rehearsing — new scenes soon • Updated February 2026'
       };
     }
 
@@ -1869,7 +1908,13 @@
         const allIds = new Set(SECTION_DEFS.map(s => s.id));
         const cleanedOrder = parsed.order.filter(id => allIds.has(id));
         SECTION_DEFS.forEach(s => { if (!cleanedOrder.includes(s.id)) cleanedOrder.push(s.id); });
-        return { order: cleanedOrder, hidden: parsed.hidden || {} };
+        return {
+          order: cleanedOrder,
+          hidden: parsed.hidden || {},
+          tickerText: (typeof parsed.tickerText === 'string' && parsed.tickerText.trim())
+            ? parsed.tickerText
+            : getDefaultAdminState().tickerText
+        };
       } catch (e) {
         return getDefaultAdminState();
       }
@@ -1978,9 +2023,33 @@
       document.body.style.overflow = '';
     }
 
+    function setTickerTextInDOM(text){
+      const a=document.getElementById('ticker-text-a');
+      const b=document.getElementById('ticker-text-b');
+      const t=(text||adminState?.tickerText||'').trim();
+      if(a) a.textContent=t+' ';
+      if(b) b.textContent=t+' ';
+    }
+
     function renderAdminList() {
       if (!adminList) return;
       adminList.innerHTML = '';
+      // Ticker editor field
+      const tickerWrap=document.createElement('div');
+      tickerWrap.className='admin-row';
+      tickerWrap.style.flexDirection='column';
+      tickerWrap.style.alignItems='stretch';
+      const lbl=document.createElement('div');
+      lbl.className='admin-label';
+      lbl.textContent='Ticker text';
+      const ta=document.createElement('textarea');
+      ta.id='admin-ticker-input';
+      ta.className='admin-input';
+      ta.rows=2;
+      ta.value=adminState.tickerText||'';
+      tickerWrap.appendChild(lbl);
+      tickerWrap.appendChild(ta);
+      adminList.appendChild(tickerWrap);
 
       adminState.order.forEach((id, idx) => {
         const def = SECTION_DEFS.find(s => s.id === id);
@@ -2109,6 +2178,8 @@
 
     if (adminApply) {
       adminApply.addEventListener('click', () => {
+        const ti=document.getElementById('admin-ticker-input');
+        if(ti){ adminState.tickerText=ti.value.trim(); setTickerTextInDOM(adminState.tickerText); }
         saveAdminState(adminState);
         applyAdminState(adminState);
         closeOverlay(adminOverlay);
@@ -2120,6 +2191,7 @@
         adminState = getDefaultAdminState();
         saveAdminState(adminState);
         applyAdminState(adminState);
+        setTickerTextInDOM(adminState.tickerText);
         renderAdminList();
       });
     }
@@ -2155,10 +2227,10 @@
     window.addEventListener('load', () => {
       adminState = loadAdminState();
       applyAdminState(adminState);
+      setTickerTextInDOM(adminState.tickerText);
       runSelfTests();
     });
 
   </script>
  </body>
 </html>
-
