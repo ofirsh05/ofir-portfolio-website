@@ -2243,32 +2243,41 @@
     }
 
     // Admin panel controls
-    if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
+    if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));// Admin panel controls
+if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
 
-    const spans = document.querySelectorAll('#hero-section span, #contact-section span');
-      const spans = document.querySelectorAll('#hero-section span, #contact-section span');
-      spans.forEach(s => {
-        s.textContent = name ? ' ' + name : '';
-      });
+function setAgencyInDOM(name, url) {
+  const spans = document.querySelectorAll('#hero-section span, #contact-section span');
+  spans.forEach(s => {
+    s.textContent = name ? ' ' + name : '';
+  });
 
-      const contactBtn = document.querySelector('#contact-section .inline-flex');
-      if (!contactBtn) return;
+  const contactBtn = document.querySelector('#contact-section .inline-flex');
+  if (!contactBtn) return;
 
-      if (name && url) {
-        let wrapper = contactBtn.closest('a');
-        if (!wrapper) {
-          const a = document.createElement('a');
-          a.href = url;
-          a.target = '_blank';
-          a.rel = 'noopener noreferrer';
-          contactBtn.parentNode.insertBefore(a, contactBtn);
-          a.appendChild(contactBtn);
-        } else {
-          wrapper.href = url;
-        }
-        contactBtn.style.cursor = 'pointer';
-      }
+  if (name && url) {
+    let wrapper = contactBtn.closest('a');
+    if (!wrapper) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      contactBtn.parentNode.insertBefore(a, contactBtn);
+      a.appendChild(contactBtn);
+    } else {
+      wrapper.href = url;
     }
+    contactBtn.style.cursor = 'pointer';
+  } else {
+    // If no agency URL, unwrap link if it exists
+    const wrapper = contactBtn.closest('a');
+    if (wrapper && wrapper.parentNode) {
+      wrapper.parentNode.insertBefore(contactBtn, wrapper);
+      wrapper.remove();
+    }
+    contactBtn.style.cursor = '';
+  }
+}
 
     if (adminApply) {
       adminApply.addEventListener('click', () => {
