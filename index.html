@@ -2251,20 +2251,23 @@
     }
 
     // Admin panel controls
-    if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));// Admin panel controls
 if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
 
 function setAgencyInDOM(name, url) {
   const heroSpan = document.getElementById('agency-name-hero');
   const contactSpan = document.getElementById('agency-name-contact');
+  const contactPill = document.getElementById('agency-pill');
 
+  // Set text in hero + contact
   if (heroSpan) heroSpan.textContent = name ? name : '';
   if (contactSpan) contactSpan.textContent = name ? name : '';
 
-  const contactPill = document.getElementById('agency-pill');
   if (!contactPill) return;
 
-  if (name && url) {
+  const hasLink = !!(name && url);
+
+  if (hasLink) {
+    // Wrap pill with <a> if not already wrapped, otherwise update href
     let wrapper = contactPill.closest('a');
     if (!wrapper) {
       const a = document.createElement('a');
@@ -2278,22 +2281,13 @@ function setAgencyInDOM(name, url) {
     }
     contactPill.style.cursor = 'pointer';
   } else {
+    // Unwrap pill if it is currently inside a link
     const wrapper = contactPill.closest('a');
     if (wrapper && wrapper.parentNode) {
       wrapper.parentNode.insertBefore(contactPill, wrapper);
       wrapper.remove();
     }
     contactPill.style.cursor = '';
-  }
-}
-  } else {
-    // If no agency URL, unwrap link if it exists
-    const wrapper = contactBtn.closest('a');
-    if (wrapper && wrapper.parentNode) {
-      wrapper.parentNode.insertBefore(contactBtn, wrapper);
-      wrapper.remove();
-    }
-    contactBtn.style.cursor = '';
   }
 }
 
