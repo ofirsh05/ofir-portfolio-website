@@ -1,9 +1,4 @@
-<!-- Paste your full single-file HTML below (replace everything in this canvas with your full file).
-     After you paste it, tell me “done” and I’ll insert:
-     1) the NOW/NEXT ticker section between resume and gallery
-     2) the SECTION_DEFS entry in the right spot
-     3) the admin tickerText field + localStorage wiring
--->
+
 <!doctype html>
 <html lang="en">
  <head>
@@ -847,6 +842,11 @@
  <body class="font-body" style="background-color: var(--bg-main);">
   <div class="app-wrapper w-full"><!-- HERO SECTION -->
    <section id="hero-section" class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
+    <div class="absolute top-6 left-6 z-20">
+     <div class="font-display text-xs tracking-widest" style="color: var(--text-secondary); letter-spacing: 0.25em; opacity: 0.7;">
+      Represented by: <span></span>
+     </div>
+    </div>
     <!-- Separated moving background graphics (lines + circles) -->
     <div class="hero-pattern-layer hero-pattern-lines" aria-hidden="true"></div>
     <div class="hero-pattern-layer hero-pattern-circles" aria-hidden="true"></div>
@@ -1296,6 +1296,9 @@
     </div>
 
     <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p>
+
+    <div class="inline-flex items-center px-7 py-3 rounded-full mb-12" style="background: rgba(184, 155, 114, 0.12); border: 2px solid rgba(184, 155, 114, 0.35); color: var(--text-primary); font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.78rem;">Represented by:<span></span></div>
+    </div>
 
     <!-- Contact Buttons -->
     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
@@ -1877,6 +1880,11 @@
     const ADMIN_PASSWORD = '3557';
     const STORAGE_KEY = 'ofir_site_admin_state_v1';
 
+    const AGENCY_DEFAULT = {
+      agencyName: '',
+      agencyUrl: ''
+    };
+
     const SECTION_DEFS = [
       { id: 'hero-section', label: 'Hero', baseTheme: 'light' },
       { id: 'showreel-section', label: 'Demo Reel', baseTheme: 'dark' },
@@ -1891,11 +1899,46 @@
       return {
         order: SECTION_DEFS.map(s => s.id),
         hidden: {},
+        tickerText: 'Auditioning + rehearsing — new scenes soon • Updated February 2026',
+        agencyName: '',
+        agencyUrl: ''
+      };
+    }
+
+    function getDefaultAdminState_OLD() {
+      return {
+        order: SECTION_DEFS.map(s => s.id),
+        hidden: {},
         tickerText: 'Auditioning + rehearsing — new scenes soon • Updated February 2026'
       };
     }
 
     function loadAdminState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return getDefaultAdminState();
+        const parsed = JSON.parse(raw);
+        if (!parsed || !Array.isArray(parsed.order) || typeof parsed.hidden !== 'object') {
+          return getDefaultAdminState();
+        }
+        const allIds = new Set(SECTION_DEFS.map(s => s.id));
+        const cleanedOrder = parsed.order.filter(id => allIds.has(id));
+        SECTION_DEFS.forEach(s => { if (!cleanedOrder.includes(s.id)) cleanedOrder.push(s.id); });
+        return {
+          order: cleanedOrder,
+          hidden: parsed.hidden || {},
+          tickerText: (typeof parsed.tickerText === 'string' && parsed.tickerText.trim())
+            ? parsed.tickerText
+            : getDefaultAdminState().tickerText,
+          agencyName: typeof parsed.agencyName === 'string' ? parsed.agencyName : '',
+          agencyUrl: typeof parsed.agencyUrl === 'string' ? parsed.agencyUrl : ''
+        };
+      } catch (e) {
+        return getDefaultAdminState();
+      }
+    }
+
+    function loadAdminState_OLD() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return getDefaultAdminState();
@@ -2051,6 +2094,33 @@
       tickerWrap.appendChild(ta);
       adminList.appendChild(tickerWrap);
 
+      const agencyWrap = document.createElement('div');
+      agencyWrap.className = 'admin-row';
+      agencyWrap.style.flexDirection = 'column';
+      agencyWrap.style.alignItems = 'stretch';
+
+      const agencyLabel = document.createElement('div');
+      agencyLabel.className = 'admin-label';
+      agencyLabel.textContent = 'Agency (Represented by)';
+
+      const agencyNameInput = document.createElement('input');
+      agencyNameInput.id = 'admin-agency-name';
+      agencyNameInput.className = 'admin-input';
+      agencyNameInput.placeholder = 'Agency name';
+      agencyNameInput.value = adminState.agencyName || '';
+
+      const agencyUrlInput = document.createElement('input');
+      agencyUrlInput.id = 'admin-agency-url';
+      agencyUrlInput.className = 'admin-input';
+      agencyUrlInput.placeholder = 'Agency website URL (https://...)';
+      agencyUrlInput.style.marginTop = '8px';
+      agencyUrlInput.value = adminState.agencyUrl || '';
+
+      agencyWrap.appendChild(agencyLabel);
+      agencyWrap.appendChild(agencyNameInput);
+      agencyWrap.appendChild(agencyUrlInput);
+      adminList.appendChild(agencyWrap);
+
       adminState.order.forEach((id, idx) => {
         const def = SECTION_DEFS.find(s => s.id === id);
         if (!def) return;
@@ -2176,10 +2246,40 @@
     // Admin panel controls
     if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
 
+    function setAgencyInDOM(name, url) {
+      const spans = document.querySelectorAll('#hero-section span, #contact-section span');
+      spans.forEach(s => {
+        s.textContent = name ? ' ' + name : '';
+      });
+
+      const contactBtn = document.querySelector('#contact-section .inline-flex');
+      if (!contactBtn) return;
+
+      if (name && url) {
+        let wrapper = contactBtn.closest('a');
+        if (!wrapper) {
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          contactBtn.parentNode.insertBefore(a, contactBtn);
+          a.appendChild(contactBtn);
+        } else {
+          wrapper.href = url;
+        }
+        contactBtn.style.cursor = 'pointer';
+      }
+    }
+
     if (adminApply) {
       adminApply.addEventListener('click', () => {
         const ti=document.getElementById('admin-ticker-input');
         if(ti){ adminState.tickerText=ti.value.trim(); setTickerTextInDOM(adminState.tickerText); }
+                const an = document.getElementById('admin-agency-name');
+        const au = document.getElementById('admin-agency-url');
+        if (an) adminState.agencyName = an.value.trim();
+        if (au) adminState.agencyUrl = au.value.trim();
+        setAgencyInDOM(adminState.agencyName, adminState.agencyUrl);
         saveAdminState(adminState);
         applyAdminState(adminState);
         closeOverlay(adminOverlay);
@@ -2225,6 +2325,7 @@
 
     // Apply saved state on load
     window.addEventListener('load', () => {
+      setAgencyInDOM(adminState.agencyName, adminState.agencyUrl);
       adminState = loadAdminState();
       applyAdminState(adminState);
       setTickerTextInDOM(adminState.tickerText);
