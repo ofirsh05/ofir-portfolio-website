@@ -851,7 +851,7 @@
    <section id="hero-section" class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
     <div class="absolute top-6 left-6 z-20">
      <div class="font-display text-xs tracking-widest" style="color: var(--text-secondary); letter-spacing: 0.25em; opacity: 0.7;">
-      Represented by: <span id="agency-name-hero"></span>
+      Represented by: הסוכנות שלך <span id="agency-name-hero"></span>
      </div>
     </div>
     <!-- Separated moving background graphics (lines + circles) -->
@@ -1304,7 +1304,7 @@
 
     <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p>
 
-    <div id="agency-pill" class="inline-flex items-center px-7 py-3 rounded-full mb-12" style="background: rgba(184, 155, 114, 0.12); border: 2px solid rgba(184, 155, 114, 0.35); color: var(--text-primary); font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.78rem;">Represented by: <span id="agency-name-contact"></span></div>
+    <div id="agency-pill" class="inline-flex items-center px-7 py-3 rounded-full mb-12" style="background: rgba(184, 155, 114, 0.12); border: 2px solid rgba(184, 155, 114, 0.35); color: var(--text-primary); font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.78rem;">Represented by:הסוכנות שלך <span id="agency-name-contact"></span></div>
     </div>
 
     <!-- Contact Buttons -->
@@ -1906,7 +1906,7 @@
       return {
         order: SECTION_DEFS.map(s => s.id),
         hidden: {},
-        tickerText: 'Auditioning + rehearsing — new scenes soon • Updated February 2026',
+        tickerText: 'ניתן לראות רזומה בעברית בלינקים | Auditions for Nissan Nativ Studio April 15th | ניתן לראות רזומה בעברית בלינקים | Singing performance April 15th | Musical "Company" - Cameri Theater on July',
         agencyName: '',
         agencyUrl: ''
       };
@@ -1916,7 +1916,7 @@
       return {
         order: SECTION_DEFS.map(s => s.id),
         hidden: {},
-        tickerText: 'Auditioning + rehearsing — new scenes soon • Updated February 2026'
+        tickerText: 'ניתן לראות רזומה בעברית בלינקים | Auditions for Nissan Nativ Studio April 15th | ניתן לראות רזומה בעברית בלינקים | Singing performance April 15th | Musical "Company" - Cameri Theater on July'
       };
     }
 
@@ -2108,7 +2108,7 @@
 
       const agencyLabel = document.createElement('div');
       agencyLabel.className = 'admin-label';
-      agencyLabel.textContent = 'Agency (Represented by)';
+      agencyLabel.textContent = 'Agency (Represented by: הסוכנות שלך)';
 
       const agencyNameInput = document.createElement('input');
       agencyNameInput.id = 'admin-agency-name';
