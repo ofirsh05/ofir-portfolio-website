@@ -2245,7 +2245,7 @@
     // Admin panel controls
     if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
 
-    function setAgencyInDOM(name, url) {
+    const spans = document.querySelectorAll('#hero-section span, #contact-section span');
       const spans = document.querySelectorAll('#hero-section span, #contact-section span');
       spans.forEach(s => {
         s.textContent = name ? ' ' + name : '';
