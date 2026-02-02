@@ -851,7 +851,7 @@
    <section id="hero-section" class="hero-pattern min-h-screen flex flex-col items-center justify-center px-6 py-16 relative" style="background-color: var(--bg-main);">
     <div class="absolute top-6 left-6 z-20">
      <div class="font-display text-xs tracking-widest" style="color: var(--text-secondary); letter-spacing: 0.25em; opacity: 0.7;">
-      Represented by: <span></span>
+      Represented by: <span id="agency-name-hero"></span>
      </div>
     </div>
     <!-- Separated moving background graphics (lines + circles) -->
@@ -1304,7 +1304,7 @@
 
     <p class="font-body text-lg mb-16" style="color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Interested in working together? I'd love to hear from you.</p>
 
-    <div class="inline-flex items-center px-7 py-3 rounded-full mb-12" style="background: rgba(184, 155, 114, 0.12); border: 2px solid rgba(184, 155, 114, 0.35); color: var(--text-primary); font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.78rem;">Represented by:<span></span></div>
+    <div id="agency-pill" class="inline-flex items-center px-7 py-3 rounded-full mb-12" style="background: rgba(184, 155, 114, 0.12); border: 2px solid rgba(184, 155, 114, 0.35); color: var(--text-primary); font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.78rem;">Represented by: <span id="agency-name-contact"></span></div>
     </div>
 
     <!-- Contact Buttons -->
@@ -2255,27 +2255,37 @@
 if (adminClose) adminClose.addEventListener('click', () => closeOverlay(adminOverlay));
 
 function setAgencyInDOM(name, url) {
-  const spans = document.querySelectorAll('#hero-section span, #contact-section span');
-  spans.forEach(s => {
-    s.textContent = name ? ' ' + name : '';
-  });
+  const heroSpan = document.getElementById('agency-name-hero');
+  const contactSpan = document.getElementById('agency-name-contact');
 
-  const contactBtn = document.querySelector('#contact-section .inline-flex');
-  if (!contactBtn) return;
+  if (heroSpan) heroSpan.textContent = name ? name : '';
+  if (contactSpan) contactSpan.textContent = name ? name : '';
+
+  const contactPill = document.getElementById('agency-pill');
+  if (!contactPill) return;
 
   if (name && url) {
-    let wrapper = contactBtn.closest('a');
+    let wrapper = contactPill.closest('a');
     if (!wrapper) {
       const a = document.createElement('a');
       a.href = url;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      contactBtn.parentNode.insertBefore(a, contactBtn);
-      a.appendChild(contactBtn);
+      contactPill.parentNode.insertBefore(a, contactPill);
+      a.appendChild(contactPill);
     } else {
       wrapper.href = url;
     }
-    contactBtn.style.cursor = 'pointer';
+    contactPill.style.cursor = 'pointer';
+  } else {
+    const wrapper = contactPill.closest('a');
+    if (wrapper && wrapper.parentNode) {
+      wrapper.parentNode.insertBefore(contactPill, wrapper);
+      wrapper.remove();
+    }
+    contactPill.style.cursor = '';
+  }
+}
   } else {
     // If no agency URL, unwrap link if it exists
     const wrapper = contactBtn.closest('a');
